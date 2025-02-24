@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 127359926}
+  - component: {fileID: 127359927}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -159,6 +160,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &127359927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127359925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cebb227a807d154db7956bbfef36961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +888,7 @@ GameObject:
   - component: {fileID: 1948452405}
   - component: {fileID: 1948452407}
   - component: {fileID: 1948452406}
+  - component: {fileID: 1948452408}
   m_Layer: 5
   m_Name: Grid
   m_TagString: Untagged
@@ -899,7 +914,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 70, y: 70}
+  m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1948452406
 MonoBehaviour:
@@ -939,6 +954,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948452404}
   m_CullTransparentMesh: 1
+--- !u!114 &1948452408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948452404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c998ff45740605e4e849f81adbd5839b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2058720533
 GameObject:
   m_ObjectHideFlags: 0

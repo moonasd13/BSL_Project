@@ -12,10 +12,5 @@ public class Item : MonoBehaviour
     Sprite image;
     ItemType type;
 
-
     
-    public void UseItem()
-    {
-        
-    }
 }
