@@ -12,6 +12,8 @@ public class Inventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     [SerializeField]
     List<Item> items;
+    [SerializeField]
+    Grid[] grids;
 
     void Start()
     {
