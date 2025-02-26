@@ -7,42 +7,37 @@ using UnityEngine.EventSystems;
 public class InventoryManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     int _invenMaxSize = 64;
-    int[] _inven;
-    [SerializeField]
-    GameObject[] gridsObj;
     [SerializeField]
     Grid[] grids;
 
     void Start()
     {
         InitInvenSize();
-        CheckTile();
+        //CheckTile();
     }
     void InitInvenSize()
     {
-        _inven = new int[_invenMaxSize];
+        grids = new Grid[_invenMaxSize];
         for (int i = 0; i < _invenMaxSize; i++)
         {
-            gridsObj[i] = transform.GetChild(0).GetChild(i).GetComponent<GameObject>();
-            grids[i] = gridsObj[i].GetComponent<Grid>();
-            //grids[i] = transform.GetChild(0).GetChild(i).GetComponent<Grid>();
-        }
-        for (int i = 0; i < _invenMaxSize; i++)
-        {
-            //if ()
-            //grids[i].SetTile();
+            grids[i] = transform.GetChild(0).GetChild(i).GetComponent<Grid>();
+            Debug.Log(grids[i].name);
+            grids[i].SetTile(1);
         }
     }
-    void CheckTile()
-    {
-        for (int i = 0; i < _invenMaxSize; i++)
-        {
-            if ((grids[i].isActive == false && grids[i + 1].isActive == true) || (grids[i].isActive == false && grids[i - 1].isActive == true) || (grids[i].isActive == false && grids[i + 8] == true) || grids[i].isActive == false && grids[i - 8] == true)
-            {
-                grids[i].SetTile(1);
-            }
-        }
-    }
+    //void CheckTile()
+    //{
+    //    for (int i = 0; i < _invenMaxSize; i++)
+    //    {
+    //        if ((grids[i].isActive == false && grids[i + 1].isActive == true) ||
+    //            (grids[i].isActive == false && grids[i - 1].isActive == true) ||
+    //            (grids[i].isActive == false && grids[i + 8].isActive == true) ||
+    //            (grids[i].isActive == false && grids[i - 8] == true))
+    //        {
+    //            grids[i].SetTile(1);
+    //        }
+    //    }
+    //}
     public void OnBeginDrag(PointerEventData eventData) // ´­·¶À»¶§
     {
 

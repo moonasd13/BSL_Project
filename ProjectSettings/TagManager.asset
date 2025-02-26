@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grid
   - Item
+  - Inven
   layers:
   - Default
   - TransparentFX
