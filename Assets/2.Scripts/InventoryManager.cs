@@ -8,23 +8,39 @@ public class InventoryManager : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 {
     int _invenMaxSize = 64;
     int[] _inven;
+    [SerializeField]
+    GameObject[] gridsObj;
+    [SerializeField]
     Grid[] grids;
 
     void Start()
     {
-
+        InitInvenSize();
+        CheckTile();
     }
     void InitInvenSize()
     {
         _inven = new int[_invenMaxSize];
         for (int i = 0; i < _invenMaxSize; i++)
         {
-            grids[i] = transform.GetChild(0).GetChild(i).GetComponent<Grid>();
+            gridsObj[i] = transform.GetChild(0).GetChild(i).GetComponent<GameObject>();
+            grids[i] = gridsObj[i].GetComponent<Grid>();
+            //grids[i] = transform.GetChild(0).GetChild(i).GetComponent<Grid>();
         }
         for (int i = 0; i < _invenMaxSize; i++)
         {
             //if ()
-            grids[i].SetTile();
+            //grids[i].SetTile();
+        }
+    }
+    void CheckTile()
+    {
+        for (int i = 0; i < _invenMaxSize; i++)
+        {
+            if ((grids[i].isActive == false && grids[i + 1].isActive == true) || (grids[i].isActive == false && grids[i - 1].isActive == true) || (grids[i].isActive == false && grids[i + 8] == true) || grids[i].isActive == false && grids[i - 8] == true)
+            {
+                grids[i].SetTile(1);
+            }
         }
     }
     public void OnBeginDrag(PointerEventData eventData) // ´­·¶À»¶§
