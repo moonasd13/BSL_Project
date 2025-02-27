@@ -13,6 +13,7 @@ public class Grid : MonoBehaviour
     Color plusColor = new Color(248, 210, 85);  // (+)이미지 색
     public bool isEmpty { get; set; }       // 칸이 비어있는지 확인하는 변수
     public bool isActive { get; set; }                   // 칸이 활성화 되어있는지 확인하는 변수
+    public GameObject Item;
     void Start()
     {
         Image = gameObject.GetComponent<Image>();
@@ -20,7 +21,9 @@ public class Grid : MonoBehaviour
 
     public void SetTile(int icon)
     {
+        /*
         Image.sprite = sprites[icon];
         Debug.Log("+");
+        */
     }
 }
