@@ -10,6 +10,8 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Vector2 _draggingOffset = Vector2.zero;
     [SerializeField]
     GameObject draggingObj;     // 드래그중인 게임오브젝트
+    GameObject draggingMesh;    // 드래그중인 게임오브젝트의 메쉬
+    GameObject[] draggingObjGrid; // 드래그중인 오브젝트의 칸(Grid)
     [SerializeField]
     GameObject item;
     [SerializeField]
@@ -20,21 +22,36 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             Destroy(draggingObj);
         }
-        ItemInfo sourceItem = gameObject.transform.GetComponentInChildren<ItemInfo>();
-        MeshFilter sourceFilter = gameObject.transform.GetChild(0).GetComponentInChildren<MeshFilter>();
-        MeshRenderer sourceRenderer = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();
-        Transform sourceTransform = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Transform>();
-        draggingObj = new GameObject("Dragging Item Object");
+        ItemInfo sourceItem = gameObject.transform.GetComponentInChildren<ItemInfo>();                              // 드래그한 오브젝트의 아이템 정보를 알기위함
+        MeshFilter sourceFilter = gameObject.transform.GetChild(0).GetComponentInChildren<MeshFilter>();            // 드래그한 오브젝트의 메쉬필터 정보를 알기위함
+        MeshRenderer sourceRenderer = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();      // 드래그한 오브젝트의 메쉬렌더 정보를 알기위함
+        Transform sourceTransform = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Transform>();         // 드래그한 오브젝트의 Scale 및 Rotation 정보 알기위함
+        Image[] sourceGrids = gameObject.transform.GetChild(0).GetChild(1).GetComponentsInChildren<Image>();
+        draggingObj = new GameObject("Dragging Item Object");                                                       // 드래그게임오브젝트생성
+        draggingMesh = new GameObject("mesh");
+        draggingObjGrid = new GameObject[gameObject.transform.GetChild(0).GetChild(1).childCount];
+        draggingObj.transform.SetParent(InventoryManager._rootInvenTransform.transform);        // InventoryCanvas의 자식으로 설정
+        draggingObj.transform.SetAsLastSibling();                                               // InventoryCanvas의 마지막에 생성되도록 설정
+        draggingObj.layer = InventoryManager._rootInvenTransform.gameObject.layer;              // 드래그중인 이미지를 ui에 띄우게 레이어를 InventoryCanvas로 설정
+        Image[] draggingGridImage = new Image[draggingObjGrid.Length];
+        for (int i = 0; i < gameObject.transform.GetChild(0).GetChild(1).childCount; i++)
+        {
+            draggingObjGrid[i] = new GameObject($"Gird{i}");
+            draggingGridImage[i] = draggingObjGrid[i].AddComponent<Image>();
+            draggingGridImage[i].sprite = sourceGrids[i].sprite;
+            draggingGridImage[i].rectTransform.sizeDelta = sourceGrids[i].rectTransform.sizeDelta;
+            draggingGridImage[i].rectTransform.position = sourceGrids[i].rectTransform.localPosition;
+            draggingObjGrid[i].transform.SetParent(draggingObj.transform);
+        }
 
-        //draggingObj.transform.SetParent(InventoryManager._rootInvenTransform.transform);
-        //draggingObj.transform.SetAsLastSibling();
-        draggingObj.transform.localScale = sourceTransform.localScale;
-        draggingObj.transform.localEulerAngles = sourceTransform.localEulerAngles;
-        CanvasGroup canGroup = draggingObj.AddComponent<CanvasGroup>();
+        //draggingObj.transform.SetLocalPositionAndRotation(sourceTransform.transform.forward, sourceTransform.rotation);
+        //draggingObj.transform.localScale = sourceTransform.localScale;
+        //draggingObj.transform.localEulerAngles = sourceTransform.localEulerAngles;
+        CanvasGroup canGroup = draggingObj.AddComponent<CanvasGroup>();                         // 드래그중인 오브젝트에 CanvasGroup 컴포넌트 추가
         canGroup.blocksRaycasts = false;
-        ItemInfo draggingItem = draggingObj.AddComponent<ItemInfo>();
-        MeshFilter draggingFilter = draggingObj.AddComponent<MeshFilter>();
-        MeshRenderer draggingRenderer = draggingObj.AddComponent<MeshRenderer>();
+        ItemInfo draggingItem = draggingObj.AddComponent<ItemInfo>();                           // 드래그중인 오브젝트에 ItemInfo 컴포넌트 추가
+        MeshFilter draggingFilter = draggingObj.AddComponent<MeshFilter>();                     // 드래그중인 오브젝트에 MeshFilter 컴포넌트 추가
+        MeshRenderer draggingRenderer = draggingObj.AddComponent<MeshRenderer>();               // 드래그중인 오브젝트에 MeshRenderer 컴포넌트 추가
         draggingItem.name = sourceItem.name;
         draggingFilter.mesh = sourceFilter.mesh;
         draggingRenderer.sharedMaterial = sourceRenderer.sharedMaterial;
