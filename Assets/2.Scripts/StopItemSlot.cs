@@ -8,13 +8,12 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 {
     [SerializeField]
     Vector2 _draggingOffset = Vector2.zero;
-    [SerializeField]
     GameObject draggingObj;     // 드래그중인 게임오브젝트
     GameObject draggingMesh;    // 드래그중인 게임오브젝트의 메쉬
-    GameObject[] draggingObjGrid; // 드래그중인 오브젝트의 칸(Grid)
+    GameObject draggingObjPGrid;    // 드래그중인 오브젝트의 그리드를 가지고있게할 부모오브젝트
+    GameObject[] draggingObjCGrid; // 드래그중인 오브젝트의 칸(Grid)
     [SerializeField]
-    GameObject item;
-    [SerializeField]
+    ItemInfo item;
     RectTransform _canvasRt;
     public void OnBeginDrag(PointerEventData eventData) // 눌렀을때
     {
@@ -26,32 +25,40 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         MeshFilter sourceFilter = gameObject.transform.GetChild(0).GetComponentInChildren<MeshFilter>();            // 드래그한 오브젝트의 메쉬필터 정보를 알기위함
         MeshRenderer sourceRenderer = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();      // 드래그한 오브젝트의 메쉬렌더 정보를 알기위함
         Transform sourceTransform = gameObject.transform.GetChild(0).GetChild(0).GetComponent<Transform>();         // 드래그한 오브젝트의 Scale 및 Rotation 정보 알기위함
+        RectTransform sourceRTransform = gameObject.transform.GetChild(0).GetComponent<RectTransform>();
         Image[] sourceGrids = gameObject.transform.GetChild(0).GetChild(1).GetComponentsInChildren<Image>();
-        draggingObj = new GameObject("Dragging Item Object");                                                       // 드래그게임오브젝트생성
-        draggingMesh = new GameObject("mesh");
-        draggingObjGrid = new GameObject[gameObject.transform.GetChild(0).GetChild(1).childCount];
+        draggingObj = new GameObject("Dragging Item Object", typeof(RectTransform));                                                       // 드래그게임오브젝트생성          > Item_000
+        RectTransform rt = gameObject.GetComponent<RectTransform>();
+        draggingMesh = new GameObject("mesh", typeof(RectTransform));                                                                      // 드래그게임오브젝트의메쉬        > mesh
+        draggingObjPGrid = new GameObject("Grids", typeof(RectTransform));                                                                  // 드래그게임오브젝트의 그리드칸을 가지고있는 부모 오브젝트
+        draggingObjCGrid = new GameObject[gameObject.transform.GetChild(0).GetChild(1).childCount];                  // 드래그게임오브젝트의그리드칸    > Grids   / 드래그한 오브젝트만큼 배열 초기화
         draggingObj.transform.SetParent(InventoryManager._rootInvenTransform.transform);        // InventoryCanvas의 자식으로 설정
         draggingObj.transform.SetAsLastSibling();                                               // InventoryCanvas의 마지막에 생성되도록 설정
         draggingObj.layer = InventoryManager._rootInvenTransform.gameObject.layer;              // 드래그중인 이미지를 ui에 띄우게 레이어를 InventoryCanvas로 설정
-        Image[] draggingGridImage = new Image[draggingObjGrid.Length];
+        draggingMesh.transform.SetParent(draggingObj.transform);
+        draggingObjPGrid.transform.SetParent(draggingObj.transform);
+        Image[] draggingGridImage = new Image[draggingObjCGrid.Length];
         for (int i = 0; i < gameObject.transform.GetChild(0).GetChild(1).childCount; i++)
         {
-            draggingObjGrid[i] = new GameObject($"Gird{i}");
-            draggingGridImage[i] = draggingObjGrid[i].AddComponent<Image>();
+            draggingObjCGrid[i] = new GameObject($"Gird{i}", typeof(RectTransform));
+            draggingGridImage[i] = draggingObjCGrid[i].AddComponent<Image>();
             draggingGridImage[i].sprite = sourceGrids[i].sprite;
             draggingGridImage[i].rectTransform.sizeDelta = sourceGrids[i].rectTransform.sizeDelta;
             draggingGridImage[i].rectTransform.position = sourceGrids[i].rectTransform.localPosition;
-            draggingObjGrid[i].transform.SetParent(draggingObj.transform);
+            draggingObjCGrid[i].transform.SetParent(draggingObjPGrid.transform);
         }
 
-        //draggingObj.transform.SetLocalPositionAndRotation(sourceTransform.transform.forward, sourceTransform.rotation);
-        //draggingObj.transform.localScale = sourceTransform.localScale;
-        //draggingObj.transform.localEulerAngles = sourceTransform.localEulerAngles;
+        rt.sizeDelta = sourceRTransform.sizeDelta;
+        rt.localScale = sourceRTransform.lossyScale;
+        draggingObj.AddComponent<CanvasRenderer>();
+        draggingMesh.transform.localScale = sourceTransform.localScale;
+        draggingMesh.transform.position = sourceTransform.localPosition;
+        draggingMesh.transform.localEulerAngles = sourceTransform.localEulerAngles;
         CanvasGroup canGroup = draggingObj.AddComponent<CanvasGroup>();                         // 드래그중인 오브젝트에 CanvasGroup 컴포넌트 추가
         canGroup.blocksRaycasts = false;
         ItemInfo draggingItem = draggingObj.AddComponent<ItemInfo>();                           // 드래그중인 오브젝트에 ItemInfo 컴포넌트 추가
-        MeshFilter draggingFilter = draggingObj.AddComponent<MeshFilter>();                     // 드래그중인 오브젝트에 MeshFilter 컴포넌트 추가
-        MeshRenderer draggingRenderer = draggingObj.AddComponent<MeshRenderer>();               // 드래그중인 오브젝트에 MeshRenderer 컴포넌트 추가
+        MeshFilter draggingFilter = draggingMesh.AddComponent<MeshFilter>();                     // 드래그중인 오브젝트에 MeshFilter 컴포넌트 추가
+        MeshRenderer draggingRenderer = draggingMesh.AddComponent<MeshRenderer>();               // 드래그중인 오브젝트에 MeshRenderer 컴포넌트 추가
         draggingItem.name = sourceItem.name;
         draggingFilter.mesh = sourceFilter.mesh;
         draggingRenderer.sharedMaterial = sourceRenderer.sharedMaterial;
@@ -90,5 +97,15 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnPointerExit(PointerEventData eventData)
     {
 
+    }
+    void Update()
+    {
+        if (draggingObj != null)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+
+            }
+        }
     }
 }
