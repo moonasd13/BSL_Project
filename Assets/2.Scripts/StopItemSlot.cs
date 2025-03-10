@@ -35,21 +35,27 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         draggingObj.transform.SetParent(InventoryManager._rootInvenTransform.transform);        // InventoryCanvas의 자식으로 설정
         draggingObj.transform.SetAsLastSibling();                                               // InventoryCanvas의 마지막에 생성되도록 설정
         draggingObj.layer = InventoryManager._rootInvenTransform.gameObject.layer;              // 드래그중인 이미지를 ui에 띄우게 레이어를 InventoryCanvas로 설정
+        draggingObj.transform.localScale = Vector3.one;
         draggingMesh.transform.SetParent(draggingObj.transform);
+        draggingMesh.layer = InventoryManager._rootInvenTransform.gameObject.layer;
         draggingObjPGrid.transform.SetParent(draggingObj.transform);
+        draggingObjPGrid.layer = InventoryManager._rootInvenTransform.gameObject.layer;
+        draggingObjPGrid.transform.localScale = Vector3.one;
         Image[] draggingGridImage = new Image[draggingObjCGrid.Length];
         for (int i = 0; i < gameObject.transform.GetChild(0).GetChild(1).childCount; i++)
         {
             draggingObjCGrid[i] = new GameObject($"Gird{i}", typeof(RectTransform));
             draggingGridImage[i] = draggingObjCGrid[i].AddComponent<Image>();
             draggingGridImage[i].sprite = sourceGrids[i].sprite;
-            draggingGridImage[i].rectTransform.sizeDelta = sourceGrids[i].rectTransform.sizeDelta;
-            draggingGridImage[i].rectTransform.position = sourceGrids[i].rectTransform.localPosition;
+            //draggingGridImage[i].rectTransform.sizeDelta = sourceGrids[i].rectTransform.sizeDelta;
             draggingObjCGrid[i].transform.SetParent(draggingObjPGrid.transform);
+            draggingGridImage[i].rectTransform.localScale = draggingObjPGrid.transform.localScale;
+            draggingObjCGrid[i].transform.localPosition = sourceGrids[i].rectTransform.localPosition;
+            //draggingGridImage[i].rectTransform.position = sourceGrids[i].rectTransform.localPosition;
         }
 
-        rt.sizeDelta = sourceRTransform.sizeDelta;
-        rt.localScale = sourceRTransform.lossyScale;
+        //rt.sizeDelta = sourceRTransform.sizeDelta;
+        //rt.localScale = sourceRTransform.lossyScale;
         draggingObj.AddComponent<CanvasRenderer>();
         draggingMesh.transform.localScale = sourceTransform.localScale;
         draggingMesh.transform.position = sourceTransform.localPosition;
@@ -69,16 +75,21 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (draggingObj != null)
         {
-            // 드래그 중인 아이콘의 스크린 좌표
-            Vector3 screenPos = eventData.position + _draggingOffset;
-            // 스크린 좌표를 월드 좌표로 변환
-            Camera cam = eventData.pressEventCamera;
-            Vector3 newPos;
-            if (RectTransformUtility.ScreenPointToWorldPointInRectangle(_canvasRt, screenPos, GetComponent<Camera>(), out newPos))
+            //// 드래그 중인 아이콘의 스크린 좌표
+            //Vector3 screenPos = eventData.position + _draggingOffset;
+            //// 스크린 좌표를 월드 좌표로 변환
+            //Camera cam = eventData.pressEventCamera;
+            //Vector3 newPos;
+            //if (RectTransformUtility.ScreenPointToWorldPointInRectangle(_canvasRt, screenPos, GetComponent<Camera>(), out newPos))
+            //{
+            //    // 드래그 중인 아이콘의 위치를 월드 좌표로 설정
+            //    draggingObj.transform.position = newPos;
+            //    draggingObj.transform.rotation = _canvasRt.rotation;
+            //}
+            Vector2 newPos;
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRt, eventData.position, Camera.main, out newPos))
             {
-                // 드래그 중인 아이콘의 위치를 월드 좌표로 설정
-                draggingObj.transform.position = newPos;
-                draggingObj.transform.rotation = _canvasRt.rotation;
+                draggingObj.transform.localPosition = newPos;
             }
         }
     }
