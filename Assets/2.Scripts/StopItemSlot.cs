@@ -28,7 +28,7 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         RectTransform sourceRTransform = gameObject.transform.GetChild(0).GetComponent<RectTransform>();
         Image[] sourceGrids = gameObject.transform.GetChild(0).GetChild(1).GetComponentsInChildren<Image>();
         draggingObj = new GameObject("Dragging Item Object", typeof(RectTransform));                                                       // 드래그게임오브젝트생성          > Item_000
-        RectTransform rt = gameObject.GetComponent<RectTransform>();
+        RectTransform rt = gameObject.transform.GetChild(0).GetComponent<RectTransform>();
         draggingMesh = new GameObject("mesh", typeof(RectTransform));                                                                      // 드래그게임오브젝트의메쉬        > mesh
         draggingObjPGrid = new GameObject("Grids", typeof(RectTransform));                                                                  // 드래그게임오브젝트의 그리드칸을 가지고있는 부모 오브젝트
         draggingObjCGrid = new GameObject[gameObject.transform.GetChild(0).GetChild(1).childCount];                  // 드래그게임오브젝트의그리드칸    > Grids   / 드래그한 오브젝트만큼 배열 초기화
@@ -75,24 +75,30 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (draggingObj != null)
         {
-            //// 드래그 중인 아이콘의 스크린 좌표
-            //Vector3 screenPos = eventData.position + _draggingOffset;
-            //// 스크린 좌표를 월드 좌표로 변환
-            //Camera cam = eventData.pressEventCamera;
-            //Vector3 newPos;
-            //if (RectTransformUtility.ScreenPointToWorldPointInRectangle(_canvasRt, screenPos, GetComponent<Camera>(), out newPos))
-            //{
-            //    // 드래그 중인 아이콘의 위치를 월드 좌표로 설정
-            //    draggingObj.transform.position = newPos;
-            //    draggingObj.transform.rotation = _canvasRt.rotation;
-            //}
             Vector2 newPos;
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRt, eventData.position, Camera.main, out newPos))
             {
+                newPos = eventData.position;
                 draggingObj.transform.localPosition = newPos;
             }
         }
     }
+    //public void OnDrag(PointerEventData eventData)
+    //{
+    //    if (draggingObj != null)
+    //    {
+    //        Vector2 localPoint;
+    //        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+    //                _canvasRt,
+    //                eventData.position,
+    //                Camera.main, // ← `pressEventCamera` 사용!
+    //                out localPoint))
+    //        {
+    //            draggingObj.GetComponent<RectTransform>().anchoredPosition = localPoint * _draggingOffset;
+    //        }
+    //    }
+    //}
+
     public void OnEndDrag(PointerEventData eventData)   // 드래그가 끝났을때
     {
         Destroy(draggingObj);
