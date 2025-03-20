@@ -15,12 +15,20 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField]
     ItemInfo item;
     RectTransform _canvasRt;
+    [SerializeField]
+    RectTransform testCanvasRt;
     public void OnBeginDrag(PointerEventData eventData) // 눌렀을때
     {
         if (draggingObj != null)
         {
             Destroy(draggingObj);
         }
+        if (eventData.button != PointerEventData.InputButton.Left)
+        {
+            return;
+        }
+
+
         ItemInfo sourceItem = gameObject.transform.GetComponentInChildren<ItemInfo>();                              // 드래그한 오브젝트의 아이템 정보를 알기위함
         MeshFilter sourceFilter = gameObject.transform.GetChild(0).GetComponentInChildren<MeshFilter>();            // 드래그한 오브젝트의 메쉬필터 정보를 알기위함
         MeshRenderer sourceRenderer = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();      // 드래그한 오브젝트의 메쉬렌더 정보를 알기위함
@@ -54,8 +62,6 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             //draggingGridImage[i].rectTransform.position = sourceGrids[i].rectTransform.localPosition;
         }
 
-        //rt.sizeDelta = sourceRTransform.sizeDelta;
-        //rt.localScale = sourceRTransform.lossyScale;
         draggingObj.AddComponent<CanvasRenderer>();
         draggingMesh.transform.localScale = sourceTransform.localScale;
         draggingMesh.transform.position = sourceTransform.localPosition;
@@ -76,9 +82,9 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (draggingObj != null)
         {
             Vector2 newPos;
-            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRt, eventData.position, Camera.main, out newPos))
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRt, eventData.position, eventData.enterEventCamera, out newPos))
             {
-                newPos = eventData.position;
+                //newPos = eventData.position;
                 draggingObj.transform.localPosition = newPos;
             }
         }
