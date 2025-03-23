@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
-public class Grid : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class Grid : MonoBehaviour
 {
     [SerializeField]
     Image Image;                                // 그리드칸의 이미지 변경을 위한 클래스변수
@@ -19,29 +20,5 @@ public class Grid : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     void Start()
     {
         Image = gameObject.GetComponent<Image>();
-    }
-    public void OnBeginDrag(PointerEventData eventData) // 눌렀을때
-    {
-
-    }
-    public void OnDrag(PointerEventData eventData)      // 드래그 중일때
-    {
-
-    }
-    public void OnEndDrag(PointerEventData eventData)   // 드래그가 끝났을때
-    {
-
-    }
-    public void OnDrop(PointerEventData eventData)
-    {
-
-    }
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-
-    }
-    public void OnPointerExit(PointerEventData eventData)
-    {
-
     }
 }
