@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class ItemInfo : MonoBehaviour
 {
-    public string _name {  get; private set; }
-    public int[,] _size {  get; private set; }
-    
+    ItemCellData cellData;
     RectTransform rectTransform;
-        
-    public void SwitchRotate()
-    {
+    int width;
+    int height;
+    int[,] tempItem;
 
+    void Start()
+    {
+        // юс╫ц
+        //tempItem = new int[4, 3] { { 1, 1, 1 }, { 0, 1, 0 }, { 0, 1, 0 }, { 0, 1, 0 } };
+        cellData = new ItemCellData();
+        //cellData.SetItem(3, 4, tempItem);
     }
 }

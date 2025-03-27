@@ -28,6 +28,9 @@ public class InventoryManager : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
 
+        }
     }
 }
