@@ -6,15 +6,16 @@ public class ItemInfo : MonoBehaviour
 {
     ItemCellData cellData;
     RectTransform rectTransform;
+    [SerializeField]
     int width;
+    [SerializeField]
     int height;
     int[,] tempItem;
 
     void Start()
     {
-        // юс╫ц
-        //tempItem = new int[4, 3] { { 1, 1, 1 }, { 0, 1, 0 }, { 0, 1, 0 }, { 0, 1, 0 } };
+        tempItem = new int[width, height];
         cellData = new ItemCellData();
-        //cellData.SetItem(3, 4, tempItem);
+        //cellData.SetItem(width, height, tempItem);
     }
 }
