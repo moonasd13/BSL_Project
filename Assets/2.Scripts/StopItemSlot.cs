@@ -57,6 +57,7 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             draggingGridImage[i].rectTransform.sizeDelta = new Vector2(65, 65);
             draggingGridImage[i].type = Image.Type.Sliced;
             draggingGridImage[i].color = new Color(draggingGridImage[i].color.r, draggingGridImage[i].color.g, draggingGridImage[i].color.b, 0.5f);
+            draggingObjCGrid[i].AddComponent<GridRayCheck>();
             draggingObjCGrid[i].transform.localPosition = sourceGrids[i].rectTransform.localPosition;
             //Debug.Log(draggingGridImage[i].rectTransform.sizeDelta);
         }

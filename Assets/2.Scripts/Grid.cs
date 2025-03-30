@@ -30,4 +30,9 @@ public class Grid : MonoBehaviour
     {
 
     }
+    public void Test()
+    {
+        Debug.Log("충돌체크");
+        Image.color = Color.red;
+    }
 }
