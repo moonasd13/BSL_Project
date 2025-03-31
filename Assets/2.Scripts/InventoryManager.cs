@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.VFX;
 
 public class InventoryManager : MonoBehaviour
 {
+    static InventoryManager _uniqInstance;
+
     int _invenMaxSize = 64;
     [SerializeField]
     Grid[] grids;
-    List<ItemInfo> items { get; set; } = new List<ItemInfo>();
+    List<ItemInfo> InvenInitems { get; set; } = new List<ItemInfo>();
     public static RectTransform _rootInvenTransform;
+
+    public static InventoryManager _instance
+    {
+        get { return _uniqInstance; }
+    }
 
     void Start()
     {
@@ -32,6 +40,11 @@ public class InventoryManager : MonoBehaviour
         {
 
         }
+
+    }
+    public void TestItem(ItemInfo item)
+    {
+        InvenInitems.Add(item);
 
     }
 }

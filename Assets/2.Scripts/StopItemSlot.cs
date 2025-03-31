@@ -7,11 +7,11 @@ using Unity.VisualScripting;
 
 public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    GameObject SlotObj;
     GameObject draggingObj;     // 드래그중인 게임오브젝트
     GameObject draggingMesh;    // 드래그중인 게임오브젝트의 메쉬
     GameObject draggingObjPGrid;    // 드래그중인 오브젝트의 그리드를 가지고있게할 부모오브젝트
     GameObject[] draggingObjCGrid; // 드래그중인 오브젝트의 칸(Grid)
+    RectTransform draggingRootRectTransform;
     [SerializeField]
     ItemInfo item;
     RectTransform _canvasRt;
@@ -61,6 +61,7 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             draggingObjCGrid[i].transform.localPosition = sourceGrids[i].rectTransform.localPosition;
             //Debug.Log(draggingGridImage[i].rectTransform.sizeDelta);
         }
+        draggingRootRectTransform.localPosition = draggingObjCGrid[0].transform.localPosition;
         draggingObj.AddComponent<CanvasRenderer>();
         draggingMesh.transform.localScale = sourceTransform.localScale;
         draggingMesh.transform.localPosition = sourceTransform.localPosition;
@@ -93,9 +94,10 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         Destroy(draggingObj);
         gameObject.transform.GetChild(0).gameObject.SetActive(true);    // 임시
-
-        eventData.pointerDrag.transform.GetComponent<ItemInfo>();
-                
+        ItemInfo draggingInfo = eventData.pointerDrag.transform.GetComponent<ItemInfo>();
+        //draggingRootRectTransform = 
+        InventoryManager._instance.TestItem(draggingInfo);
+        
     }
     public void OnDrop(PointerEventData eventData)
     {

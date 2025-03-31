@@ -14,8 +14,6 @@ public class ItemInfo : MonoBehaviour
 
     void Start()
     {
-        //tempItem = new int[width, height];
-        //cellData = new ItemCellData();
-        //cellData.SetItem(width, height, tempItem);
+
     }
 }
