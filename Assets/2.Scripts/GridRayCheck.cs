@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class GridRayCheck : MonoBehaviour
 {
-    void Start()
-    {
+    bool isEmpty;
 
-    }
     void Update()
     {
         Image image = gameObject.GetComponent<Image>();
@@ -17,7 +15,6 @@ public class GridRayCheck : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, 10000f))
         {
             Grid CheckGrid = hit.collider.gameObject.GetComponent<Grid>();
-            //CheckGrid.Test();
             if (CheckGrid.isEmpty == false && hit.collider != null)
             {
                 image.color = Color.red;
@@ -26,7 +23,6 @@ public class GridRayCheck : MonoBehaviour
             {
                 image.color = Color.green;
             }
-            
         }
     }
 }

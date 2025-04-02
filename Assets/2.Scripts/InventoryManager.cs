@@ -12,7 +12,9 @@ public class InventoryManager : MonoBehaviour
     int _invenMaxSize = 64;
     [SerializeField]
     Grid[] grids;
+    [SerializeField]
     List<ItemInfo> InvenInitems { get; set; } = new List<ItemInfo>();
+
     public static RectTransform _rootInvenTransform;
 
     public static InventoryManager _instance
@@ -22,6 +24,7 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
+        _uniqInstance = this;
         _rootInvenTransform = GameObject.Find("InventoryCanvas").GetComponent<RectTransform>();
         InitInvenSize();
     }
@@ -45,6 +48,9 @@ public class InventoryManager : MonoBehaviour
     public void TestItem(ItemInfo item)
     {
         InvenInitems.Add(item);
-
+        //for (int i = 0; i < InvenInitems.Count; i++)
+        //{
+        //    Debug.Log($"현재인벤아이템 : {InvenInitems[i].name}");
+        //}
     }
 }

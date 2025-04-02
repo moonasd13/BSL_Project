@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4ef0ac2a7b48c49870a58edae16917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggingRootRectTransform: {fileID: 0}
   item: {fileID: 0}
 --- !u!1 &95150770
 GameObject:
@@ -2081,6 +2082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 3
   height: 4
+  name: "\uB3C4\uB07C"
 --- !u!1 &671949741
 GameObject:
   m_ObjectHideFlags: 0
@@ -7995,6 +7997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4ef0ac2a7b48c49870a58edae16917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggingRootRectTransform: {fileID: 0}
   item: {fileID: 0}
 --- !u!1 &1733136090
 GameObject:
@@ -8481,6 +8484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 2
   height: 4
+  name: "\uD558\uD0A4\uCC44"
 --- !u!1 &1871220516
 GameObject:
   m_ObjectHideFlags: 0
@@ -9179,6 +9183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4ef0ac2a7b48c49870a58edae16917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggingRootRectTransform: {fileID: 0}
   item: {fileID: 0}
 --- !u!1 &2010165102
 GameObject:
@@ -9735,6 +9740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4ef0ac2a7b48c49870a58edae16917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggingRootRectTransform: {fileID: 0}
   item: {fileID: 0}
 --- !u!1 &2085253630
 GameObject:
@@ -10277,3 +10283,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 5
   height: 1
+  name: "\uCD1D"
