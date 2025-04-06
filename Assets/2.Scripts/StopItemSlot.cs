@@ -13,6 +13,8 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     GameObject draggingObjPGrid;    // 드래그중인 오브젝트의 그리드를 가지고있게할 부모오브젝트
     GameObject[] draggingObjCGrid; // 드래그중인 오브젝트의 칸(Grid)
     [SerializeField]
+    EmptyCheck emptyCheck;
+    [SerializeField]
     RectTransform draggingRootRectTransform;
     [SerializeField]
     ItemInfo item;
@@ -78,6 +80,7 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         draggingRenderer.sharedMaterial = sourceRenderer.sharedMaterial;
         _canvasRt = InventoryManager._rootInvenTransform.transform as RectTransform;
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        emptyCheck = draggingObjPGrid.AddComponent<EmptyCheck>();
         OnDrag(eventData);
     }
     public void OnDrag(PointerEventData eventData)      // 드래그 중일때
@@ -95,10 +98,18 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnEndDrag(PointerEventData eventData)   // 드래그가 끝났을때
     {
         Destroy(draggingObj);
-        gameObject.transform.GetChild(0).gameObject.SetActive(true);    // 임시
-        ItemInfo draggingInfo = eventData.pointerDrag.transform.GetChild(0).GetComponent<ItemInfo>();
-        InventoryManager._instance.TestItem(draggingInfo);
-        draggingRootRectTransform = null;
+        if (emptyCheck.Availability == true)
+        {
+            ItemInfo draggingInfo = eventData.pointerDrag.transform.GetChild(0).GetComponent<ItemInfo>();
+            InventoryManager._instance.TestItem(draggingInfo);
+            draggingRootRectTransform = null;
+            Debug.Log("true");
+        }
+        else
+        {
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);    // 임시
+            Debug.Log("fales");
+        }
 
     }
     public void OnDrop(PointerEventData eventData)
