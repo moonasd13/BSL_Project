@@ -15,7 +15,7 @@ public class GridRayCheck : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, 10000f))
         {
             Grid CheckGrid = hit.collider.gameObject.GetComponent<Grid>();
-            if (CheckGrid.isEmpty == false && hit.collider != null)
+            if (CheckGrid.isEmpty == true && hit.collider != null)
             {
                 isEmpty = true;
                 image.color = Color.green;

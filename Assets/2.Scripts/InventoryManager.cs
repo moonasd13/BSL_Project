@@ -48,9 +48,9 @@ public class InventoryManager : MonoBehaviour
     public void TestItem(ItemInfo item)
     {
         InvenInitems.Add(item);
-        //for (int i = 0; i < InvenInitems.Count; i++)
-        //{
-        //    Debug.Log($"현재인벤아이템 : {InvenInitems[i].name}");
-        //}
+        for (int i = 0; i < InvenInitems.Count; i++)
+        {
+            Debug.Log($"현재인벤아이템 : {InvenInitems[i].name}");
+        }
     }
 }

@@ -30,6 +30,8 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             return;
         }
 
+
+
         ItemInfo sourceItem = gameObject.transform.GetComponentInChildren<ItemInfo>();                              // 드래그한 오브젝트의 아이템 정보를 알기위함
         MeshFilter sourceFilter = gameObject.transform.GetChild(0).GetComponentInChildren<MeshFilter>();            // 드래그한 오브젝트의 메쉬필터 정보를 알기위함
         MeshRenderer sourceRenderer = gameObject.transform.GetChild(0).GetComponentInChildren<MeshRenderer>();      // 드래그한 오브젝트의 메쉬렌더 정보를 알기위함
@@ -87,10 +89,12 @@ public class StopItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         if (draggingObj != null)
         {
+            Vector2 offset = new Vector2(draggingObj.transform.position.x, draggingObj.transform.position.y);
             Vector2 newPos;
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRt, eventData.position, eventData.enterEventCamera, out newPos))
             {
-                draggingObj.transform.localPosition = newPos;
+                draggingObj.transform.localPosition = newPos - offset;
+                Debug.Log(offset);
             }
         }
     }
