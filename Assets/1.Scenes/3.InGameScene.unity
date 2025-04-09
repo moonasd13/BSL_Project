@@ -443,7 +443,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 122295279}
-  - component: {fileID: 122295280}
   m_Layer: 6
   m_Name: Test
   m_TagString: Untagged
@@ -472,21 +471,6 @@ RectTransform:
   m_AnchoredPosition: {x: 208, y: -443}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &122295280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122295278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a027e136ecdc9394e987b7c812aa247e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emptyCheck: {fileID: 0}
-  draggingRootRectTransform: {fileID: 0}
-  item: {fileID: 0}
 --- !u!1 &127359925
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238788695}
   - component: {fileID: 238788696}
+  - component: {fileID: 238788697}
   m_Layer: 6
   m_Name: Item
   m_TagString: Untagged
@@ -798,7 +783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 278, y: 27.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &238788696
@@ -816,6 +801,21 @@ MonoBehaviour:
   width: 2
   height: 4
   name: "\uD558\uD0A4\uCC44"
+--- !u!114 &238788697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238788694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82008f5fc3be326438646b927db5adaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptyCheck: {fileID: 0}
+  draggingRootRectTransform: {fileID: 0}
+  item: {fileID: 0}
 --- !u!1 &259358669
 GameObject:
   m_ObjectHideFlags: 0

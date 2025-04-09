@@ -6,9 +6,9 @@ public class EmptyCheck : MonoBehaviour
 {
     public bool Availability { get; private set; }
     [SerializeField]
-    GridRayCheck[] gridRayChecks;
+    GridRayCheck[] gridRayChecks;       // 아이템을 놔둘 기준그리드
     [SerializeField]
-    Grid rootGrids;
+    public Grid rootGrids;
     void Start()
     {
         gridRayChecks = new GridRayCheck[gameObject.transform.childCount];
