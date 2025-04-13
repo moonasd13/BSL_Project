@@ -19,7 +19,7 @@ public class GridRayCheck : MonoBehaviour
             {
                 isEmpty = true;
                 image.color = Color.green;
-                hitGrid = hit.collider.gameObject.GetComponent<Grid>();
+                hitGrid = hit.collider.gameObject.GetComponent<Grid>();     //0번째Grid에서 레이를쐈을때 충돌한 인벤Grid
             }
             else
             {

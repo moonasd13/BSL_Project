@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -92,33 +93,102 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
             Vector2 newPos;
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRt, eventData.position, eventData.enterEventCamera, out newPos))
             {
-                draggingObj.transform.localPosition = newPos - offset;
+                draggingObj.transform.localPosition = newPos;
                 //Debug.Log(offset);
             }
         }
     }
+    #region
+    //public void OnEndDrag(PointerEventData eventData)   // 드래그가 끝났을때
+    //{
+    //    if (emptyCheck.Availability == true)
+    //    {
+    //        Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
+    //        draggingRootRectTransform = putGrid.transform.GetComponent<RectTransform>();
 
-    public void OnEndDrag(PointerEventData eventData)   // 드래그가 끝났을때
+    //        ItemInfo draggingInfo = eventData.pointerDrag.transform.GetComponent<ItemInfo>();
+    //        InventoryManager._instance.TestItem(draggingInfo);
+    //        draggingRootRectTransform = null;
+    //        Debug.Log("true");
+    //    }
+    //    else
+    //    {
+    //        gameObject.transform.GetChild(0).gameObject.SetActive(true);       // 임시
+    //        gameObject.transform.GetChild(1).gameObject.SetActive(true);       // 임시
+    //        gameObject.SetActive(false);
+    //        Debug.Log("fales");
+    //    }
+
+    //    Destroy(draggingObj);
+    //}
+    #endregion
+    public void OnEndDrag(PointerEventData eventData)
     {
-        //Destroy(draggingObj);
-        if (emptyCheck.Availability == true)
+        if (emptyCheck.Availability)
         {
-            ItemInfo draggingInfo = eventData.pointerDrag.transform.GetComponent<ItemInfo>();
-            InventoryManager._instance.TestItem(draggingInfo);
-            draggingRootRectTransform = null;
-            Debug.Log("true");
+            Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
+
+            GameObject placedItem = Instantiate(gameObject, InventoryManager._rootInvenTransform);
+            placedItem.SetActive(true);
+            placedItem.transform.GetChild(0).gameObject.SetActive(true);
+            placedItem.transform.GetChild(1).gameObject.SetActive(true);
+
+            placedItem.transform.SetParent(putGrid.transform.parent); // 부모 맞추기
+            placedItem.transform.localPosition = putGrid.transform.localPosition;
+            placedItem.transform.localScale = Vector3.one;
+
+            Debug.Log("아이템 배치 완료");
         }
         else
         {
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);       // 임시
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);       // 임시
-            Debug.Log("fales");
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            gameObject.SetActive(false);
+            Debug.Log("배치 실패");
         }
 
+        Destroy(draggingObj);
     }
+    #region
+    //public void OnEndDrag(PointerEventData eventData)
+    //{
+    //    Destroy(draggingObj);
+
+    //    if (emptyCheck.Availability)
+    //    {
+    //        Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
+    //        RectTransform putGridRT = putGrid.GetComponent<RectTransform>();
+
+    //        // 아이템 생성
+    //        GameObject placedItem = Instantiate(gameObject, InventoryManager._rootInvenTransform);
+    //        placedItem.SetActive(true);
+    //        placedItem.transform.GetChild(0).gameObject.SetActive(true);
+    //        placedItem.transform.GetChild(1).gameObject.SetActive(true);
+
+    //        // 위치 보정: localPosition을 맞추기 위해 anchoredPosition으로 조절
+    //        RectTransform placedRT = placedItem.GetComponent<RectTransform>();
+    //        placedRT.anchoredPosition = putGridRT.anchoredPosition;
+    //        placedRT.localScale = Vector3.one;
+    //        placedItem.transform.SetParent(InventoryManager._rootInvenTransform); // Canvas 내부로 다시 세팅
+
+    //        Debug.Log("아이템 배치 성공");
+    //    }
+    //    else
+    //    {
+    //        // 배치 실패 시
+    //        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+    //        gameObject.transform.GetChild(1).gameObject.SetActive(true);
+    //        gameObject.SetActive(false);
+    //        Debug.Log("배치 실패");
+    //    }
+    //}
+    #endregion
+
+
     public void OnDrop(PointerEventData eventData)
     {
         Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
+        draggingRootRectTransform = putGrid.transform.GetComponent<RectTransform>();
         GameObject itemObj = new GameObject("TestPutitem", typeof(RectTransform));
         itemObj = draggingObj;
         itemObj.gameObject.transform.localPosition = putGrid.gameObject.transform.localPosition;
@@ -128,10 +198,6 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
 
     }
     public void OnPointerExit(PointerEventData eventData)
-    {
-
-    }
-    void temp()
     {
 
     }
