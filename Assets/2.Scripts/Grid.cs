@@ -28,6 +28,6 @@ public class Grid : MonoBehaviour, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
-        
+        isEmpty = false;
     }
 }

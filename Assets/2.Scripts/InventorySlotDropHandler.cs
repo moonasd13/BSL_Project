@@ -18,6 +18,17 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
     [SerializeField]
     ItemInfo item;
     RectTransform _canvasRt;
+
+    void Update()
+    {
+        if (draggingObj != null)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                //draggingObj.transform.localRotation = ;
+            }
+        }
+    }
     public void OnBeginDrag(PointerEventData eventData) // ´­·¶À»¶§
     {
         if (draggingObj != null)
@@ -89,12 +100,11 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
     {
         if (draggingObj != null)
         {
-            Vector2 offset = new Vector2(draggingObj.transform.position.x, draggingObj.transform.position.y);
             Vector2 newPos;
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRt, eventData.position, eventData.enterEventCamera, out newPos))
             {
                 draggingObj.transform.localPosition = newPos;
-                //Debug.Log(offset);
+                //Debug.Log(draggingObj.transform.localPosition);
             }
         }
     }
