@@ -53,4 +53,11 @@ public class InventoryManager : MonoBehaviour
             Debug.Log($"현재인벤아이템 : {InvenInitems[i].name}");
         }
     }
+    public void GridSet(Grid[] grids)
+    {
+        for (int i = 0; i < grids.Length; i++)
+        {
+            grids[i].isEmpty = false;
+        }
+    }
 }

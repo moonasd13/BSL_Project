@@ -18,6 +18,9 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
     [SerializeField]
     ItemInfo item;
     RectTransform _canvasRt;
+    float rotateTest;
+
+    Grid[] testGrids;
 
     void Update()
     {
@@ -25,7 +28,11 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                //draggingObj.transform.localRotation = ;
+                rotateTest += 90f;
+                draggingObj.transform.localRotation = Quaternion.Euler(0, 0, rotateTest);
+                Debug.Log("현재 회전값: " + rotateTest); // 직접 추적
+                Debug.Log("쿼터니언: " + draggingObj.transform.localRotation.eulerAngles);
+
             }
         }
     }
@@ -87,7 +94,8 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
         ItemInfo draggingItem = draggingObj.AddComponent<ItemInfo>();                           // 드래그중인 오브젝트에 ItemInfo 컴포넌트 추가
         MeshFilter draggingFilter = draggingMesh.AddComponent<MeshFilter>();                     // 드래그중인 오브젝트에 MeshFilter 컴포넌트 추가
         MeshRenderer draggingRenderer = draggingMesh.AddComponent<MeshRenderer>();               // 드래그중인 오브젝트에 MeshRenderer 컴포넌트 추가
-        draggingItem.name = sourceItem.name;
+        //draggingItem.name = sourceItem.name;
+        draggingObj.name = sourceItem.name;
         draggingFilter.mesh = sourceFilter.mesh;
         draggingRenderer.sharedMaterial = sourceRenderer.sharedMaterial;
         _canvasRt = InventoryManager._rootInvenTransform.transform as RectTransform;
@@ -138,22 +146,40 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
         {
             Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
 
-            GameObject placedItem = Instantiate(gameObject, InventoryManager._rootInvenTransform);
+            GameObject placedItem = Instantiate(draggingObj, InventoryManager._rootInvenTransform);
             placedItem.SetActive(true);
+            placedItem.AddComponent<InventorySlotDropHandler>();
             placedItem.transform.GetChild(0).gameObject.SetActive(true);
             placedItem.transform.GetChild(1).gameObject.SetActive(true);
-
+            testGrids = new Grid[gameObject.transform.GetChild(1).childCount];
+            for (int i = 0; i < emptyCheck.gridRayChecks.Length; i++)
+            {
+                testGrids[i] = emptyCheck.gridRayChecks[i].hitGrid;
+            }
+            InventoryManager._instance.GridSet(testGrids);
+            Destroy(placedItem.GetComponentInChildren<EmptyCheck>());
+            Destroy(placedItem.transform.GetChild(1).GetComponentInChildren<GridRayCheck>());
+            GridRayCheck[] gridRayChecks = placedItem.transform.GetChild(1).GetComponentsInChildren<GridRayCheck>();
+            foreach (GridRayCheck check in gridRayChecks)
+            {
+                Destroy(check);
+            }
+            Image[] itemGrids = placedItem.transform.GetChild(1).GetComponentsInChildren<Image>();
+            for (int i = 0; i < itemGrids.Length; i++)
+            {
+                itemGrids[i].color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            }
             placedItem.transform.SetParent(putGrid.transform.parent); // 부모 맞추기
             placedItem.transform.localPosition = putGrid.transform.localPosition;
             placedItem.transform.localScale = Vector3.one;
-
             Debug.Log("아이템 배치 완료");
+            Destroy(gameObject);
         }
         else
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
-            gameObject.SetActive(false);
+            gameObject.SetActive(true);
             Debug.Log("배치 실패");
         }
 
@@ -197,11 +223,11 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
 
     public void OnDrop(PointerEventData eventData)
     {
-        Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
-        draggingRootRectTransform = putGrid.transform.GetComponent<RectTransform>();
-        GameObject itemObj = new GameObject("TestPutitem", typeof(RectTransform));
-        itemObj = draggingObj;
-        itemObj.gameObject.transform.localPosition = putGrid.gameObject.transform.localPosition;
+        //Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
+        //draggingRootRectTransform = putGrid.transform.GetComponent<RectTransform>();
+        //GameObject itemObj = new GameObject("TestPutitem", typeof(RectTransform));
+        //itemObj = draggingObj;
+        //itemObj.gameObject.transform.localPosition = putGrid.gameObject.transform.localPosition;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {

@@ -13,8 +13,8 @@ public class Grid : MonoBehaviour, IDropHandler
     [SerializeField]
     ItemInfo item;
     Color SpaecColor = new Color(1f, 1f, 1f, 0.5f);
-    //public bool isEmpty { get; set; }       // 칸이 비어있는지 확인하는 변수
-    public bool isEmpty;
+    public bool isEmpty { get; set; }       // 칸이 비어있는지 확인하는 변수
+    //public bool isEmpty;
     void Start()
     {
         isEmpty = true;
