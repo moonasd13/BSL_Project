@@ -102,6 +102,9 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
         emptyCheck = draggingObjPGrid.AddComponent<EmptyCheck>();
+
+        rotateTest = gameObject.transform.localRotation.z;
+        draggingObj.transform.localRotation = gameObject.transform.localRotation;
         OnDrag(eventData);
     }
     public void OnDrag(PointerEventData eventData)      // 드래그 중일때
@@ -112,7 +115,6 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRt, eventData.position, eventData.enterEventCamera, out newPos))
             {
                 draggingObj.transform.localPosition = newPos;
-                //Debug.Log(draggingObj.transform.localPosition);
             }
         }
     }
@@ -142,9 +144,11 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
     #endregion
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (emptyCheck.Availability)
+        if (emptyCheck.Availability)        // 조건1. 아이템칸들이 전부 비어 있는칸인가?
         {
             Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
+            // 임시
+            ItemInfo curItem = draggingObj.GetComponent<ItemInfo>();
 
             GameObject placedItem = Instantiate(draggingObj, InventoryManager._rootInvenTransform);
             placedItem.SetActive(true);
@@ -152,15 +156,16 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
             placedItem.transform.GetChild(0).gameObject.SetActive(true);
             placedItem.transform.GetChild(1).gameObject.SetActive(true);
             testGrids = new Grid[gameObject.transform.GetChild(1).childCount];
-            for (int i = 0; i < emptyCheck.gridRayChecks.Length; i++)
+            for (int i = 0; i < emptyCheck.gridRayChecks.Length; i++)       // 
             {
-                testGrids[i] = emptyCheck.gridRayChecks[i].hitGrid;
+                testGrids[i] = emptyCheck.gridRayChecks[i].hitGrid; // 아이템을 다시 옮길때 그리드의 정보를 아이템도 가지게 해야할것
             }
             InventoryManager._instance.GridSet(testGrids);
             Destroy(placedItem.GetComponentInChildren<EmptyCheck>());
             Destroy(placedItem.transform.GetChild(1).GetComponentInChildren<GridRayCheck>());
             GridRayCheck[] gridRayChecks = placedItem.transform.GetChild(1).GetComponentsInChildren<GridRayCheck>();
-            foreach (GridRayCheck check in gridRayChecks)
+
+            foreach (GridRayCheck check in gridRayChecks)       // 레이 제거
             {
                 Destroy(check);
             }
@@ -223,11 +228,7 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
 
     public void OnDrop(PointerEventData eventData)
     {
-        //Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
-        //draggingRootRectTransform = putGrid.transform.GetComponent<RectTransform>();
-        //GameObject itemObj = new GameObject("TestPutitem", typeof(RectTransform));
-        //itemObj = draggingObj;
-        //itemObj.gameObject.transform.localPosition = putGrid.gameObject.transform.localPosition;
+
     }
     public void OnPointerEnter(PointerEventData eventData)
     {

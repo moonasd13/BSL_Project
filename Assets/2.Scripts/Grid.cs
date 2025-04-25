@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using Unity.VisualScripting;
 
-public class Grid : MonoBehaviour, IDropHandler
+public class Grid : MonoBehaviour
 {
     Image Image;
     [SerializeField]
@@ -25,9 +24,5 @@ public class Grid : MonoBehaviour, IDropHandler
         Image.color = SpaecColor;
         this.item = item;
         isEmpty = true;
-    }
-    public void OnDrop(PointerEventData eventData)
-    {
-        isEmpty = false;
     }
 }
