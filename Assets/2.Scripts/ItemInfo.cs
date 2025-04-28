@@ -8,18 +8,26 @@ public class ItemInfo : MonoBehaviour
 {
     ItemCellData cellData;
     RectTransform rectTransform;
-    [SerializeField]
+
     int width;
-    [SerializeField]
+
     int height;
     int[,] tempItem;
-    public string name;
+    string name;
     [SerializeField]
-    Grid[] getGrids;
+    Grid[] getGrids;        // 아이템이 현재 점유하고있는 그리드
 
     void Start()
     {
+        Temp();
+    }
 
+    void Temp()
+    {
+        // 임시
+        width = 3;
+        height = 4;
+        name = "도끼";
     }
     public void SetGrids(Grid[] grid)
     {
@@ -29,4 +37,19 @@ public class ItemInfo : MonoBehaviour
             getGrids[i] = grid[i];
         }
     }
+    public bool AreGridsEqual(EmptyCheck emptyCheck)
+    {
+        if (getGrids.Length != emptyCheck.gridRayChecks.Length)
+            return false;
+
+        for (int i = 0; i < getGrids.Length; i++)
+        {
+            if (getGrids[i] != emptyCheck.gridRayChecks[i].hitGrid)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

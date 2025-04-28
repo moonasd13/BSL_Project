@@ -20,6 +20,7 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
     RectTransform _canvasRt;
     float rotateTest;
 
+    [SerializeField]
     Grid[] testGrids;
 
     void Update()
@@ -47,7 +48,7 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
             return;
         }
 
-
+        item = gameObject.transform.GetComponent<ItemInfo>();  //test
 
         ItemInfo sourceItem = gameObject.transform.GetComponent<ItemInfo>();                              // 드래그한 오브젝트의 아이템 정보를 알기위함
         MeshFilter sourceFilter = gameObject.transform.GetChild(0).GetComponent<MeshFilter>();            // 드래그한 오브젝트의 메쉬필터 정보를 알기위함
@@ -94,8 +95,10 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
         ItemInfo draggingItem = draggingObj.AddComponent<ItemInfo>();                           // 드래그중인 오브젝트에 ItemInfo 컴포넌트 추가
         MeshFilter draggingFilter = draggingMesh.AddComponent<MeshFilter>();                     // 드래그중인 오브젝트에 MeshFilter 컴포넌트 추가
         MeshRenderer draggingRenderer = draggingMesh.AddComponent<MeshRenderer>();               // 드래그중인 오브젝트에 MeshRenderer 컴포넌트 추가
-        //draggingItem.name = sourceItem.name;
         draggingObj.name = sourceItem.name;
+
+        draggingItem = item;
+
         draggingFilter.mesh = sourceFilter.mesh;
         draggingRenderer.sharedMaterial = sourceRenderer.sharedMaterial;
         _canvasRt = InventoryManager._rootInvenTransform.transform as RectTransform;
@@ -103,8 +106,9 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
         emptyCheck = draggingObjPGrid.AddComponent<EmptyCheck>();
 
-        rotateTest = gameObject.transform.localRotation.z;
+        //rotateTest = gameObject.transform.localRotation.z;
         draggingObj.transform.localRotation = gameObject.transform.localRotation;
+        Debug.Log(draggingItem.name);
         OnDrag(eventData);
     }
     public void OnDrag(PointerEventData eventData)      // 드래그 중일때
@@ -146,39 +150,51 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
     {
         if (emptyCheck.Availability)        // 조건1. 아이템칸들이 전부 비어 있는칸인가?
         {
-            Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
-            // 임시
-            ItemInfo curItem = draggingObj.GetComponent<ItemInfo>();
+            //if (testGrids != null && testGrids.Length > 0)
+            //{
+            //    Debug.Log("접근확인");
+            //    InventoryManager._instance.GridSet(testGrids);
+            //}
 
-            GameObject placedItem = Instantiate(draggingObj, InventoryManager._rootInvenTransform);
-            placedItem.SetActive(true);
-            placedItem.AddComponent<InventorySlotDropHandler>();
-            placedItem.transform.GetChild(0).gameObject.SetActive(true);
-            placedItem.transform.GetChild(1).gameObject.SetActive(true);
-            testGrids = new Grid[gameObject.transform.GetChild(1).childCount];
-            for (int i = 0; i < emptyCheck.gridRayChecks.Length; i++)       // 
-            {
-                testGrids[i] = emptyCheck.gridRayChecks[i].hitGrid; // 아이템을 다시 옮길때 그리드의 정보를 아이템도 가지게 해야할것
-            }
-            InventoryManager._instance.GridSet(testGrids);
-            Destroy(placedItem.GetComponentInChildren<EmptyCheck>());
-            Destroy(placedItem.transform.GetChild(1).GetComponentInChildren<GridRayCheck>());
-            GridRayCheck[] gridRayChecks = placedItem.transform.GetChild(1).GetComponentsInChildren<GridRayCheck>();
 
-            foreach (GridRayCheck check in gridRayChecks)       // 레이 제거
-            {
-                Destroy(check);
-            }
-            Image[] itemGrids = placedItem.transform.GetChild(1).GetComponentsInChildren<Image>();
-            for (int i = 0; i < itemGrids.Length; i++)
-            {
-                itemGrids[i].color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
-            }
-            placedItem.transform.SetParent(putGrid.transform.parent); // 부모 맞추기
-            placedItem.transform.localPosition = putGrid.transform.localPosition;
-            placedItem.transform.localScale = Vector3.one;
-            Debug.Log("아이템 배치 완료");
-            Destroy(gameObject);
+            //else
+            //{
+                Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
+
+
+                item = draggingObj.GetComponent<ItemInfo>();
+
+                GameObject placedItem = Instantiate(draggingObj, InventoryManager._rootInvenTransform);
+                placedItem.SetActive(true);
+                placedItem.AddComponent<InventorySlotDropHandler>();
+                placedItem.transform.GetChild(0).gameObject.SetActive(true);
+                placedItem.transform.GetChild(1).gameObject.SetActive(true);
+                testGrids = new Grid[gameObject.transform.GetChild(1).childCount];
+                for (int i = 0; i < emptyCheck.gridRayChecks.Length; i++)       // 
+                {
+                    testGrids[i] = emptyCheck.gridRayChecks[i].hitGrid; // 아이템을 다시 옮길때 그리드의 정보를 아이템도 가지게 해야할것
+                }
+                item.SetGrids(testGrids);
+                InventoryManager._instance.GridSet(testGrids);
+
+                Destroy(placedItem.GetComponentInChildren<EmptyCheck>());       // 레이체크스크립트 제거
+                GridRayCheck[] gridRayChecks = placedItem.transform.GetChild(1).GetComponentsInChildren<GridRayCheck>();
+                foreach (GridRayCheck check in gridRayChecks)       // 레이 제거
+                {
+                    Destroy(check);
+                }
+
+                Image[] itemGrids = placedItem.transform.GetChild(1).GetComponentsInChildren<Image>();
+                for (int i = 0; i < itemGrids.Length; i++)
+                {
+                    itemGrids[i].color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+                }
+                placedItem.transform.SetParent(putGrid.transform.parent); // 부모 맞추기
+                placedItem.transform.localPosition = putGrid.transform.localPosition;
+                placedItem.transform.localScale = Vector3.one;
+                Debug.Log("아이템 배치 완료");
+                Destroy(gameObject);
+            //}
         }
         else
         {

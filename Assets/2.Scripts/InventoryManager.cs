@@ -57,7 +57,8 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < grids.Length; i++)
         {
-            grids[i].isEmpty = false;
+            //grids[i].isEmpty = false;
+            grids[i].isEmpty = !grids[i].isEmpty;
         }
     }
 }
