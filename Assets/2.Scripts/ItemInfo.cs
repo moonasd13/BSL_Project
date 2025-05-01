@@ -8,14 +8,14 @@ public class ItemInfo : MonoBehaviour
 {
     ItemCellData cellData;
     RectTransform rectTransform;
-
-    int width;
-
-    int height;
-    int[,] tempItem;
-    string name;
     [SerializeField]
-    Grid[] getGrids;        // 아이템이 현재 점유하고있는 그리드
+    int width;
+    [SerializeField]
+    int height;
+    [SerializeField]
+    string itemName;
+    [SerializeField]
+    Grid[] curGetGrids;        // 아이템이 현재 점유하고있는 그리드
 
     void Start()
     {
@@ -29,22 +29,26 @@ public class ItemInfo : MonoBehaviour
         height = 4;
         name = "도끼";
     }
-    public void SetGrids(Grid[] grid)
+    public void GetGrids(Grid[] grid)
     {
-        getGrids = new Grid[grid.Length];
+        curGetGrids = new Grid[grid.Length];
         for (int i = 0; i < grid.Length; i++)
         {
-            getGrids[i] = grid[i];
+            curGetGrids[i] = grid[i];
         }
+    }
+    public Grid[] curGrids()
+    {
+        return curGetGrids;
     }
     public bool AreGridsEqual(EmptyCheck emptyCheck)
     {
-        if (getGrids.Length != emptyCheck.gridRayChecks.Length)
+        if (curGetGrids.Length != emptyCheck.gridRayChecks.Length)
             return false;
 
-        for (int i = 0; i < getGrids.Length; i++)
+        for (int i = 0; i < curGetGrids.Length; i++)
         {
-            if (getGrids[i] != emptyCheck.gridRayChecks[i].hitGrid)
+            if (curGetGrids[i] != emptyCheck.gridRayChecks[i].hitGrid)
             {
                 return false;
             }
