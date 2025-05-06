@@ -55,5 +55,8 @@ public class ItemInfo : MonoBehaviour
         }
         return true;
     }
-
+    public void GetComponent()
+    {
+        gameObject.GetComponent<InventorySlotDropHandler>();
+    }
 }

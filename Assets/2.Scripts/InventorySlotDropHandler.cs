@@ -156,10 +156,19 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
             if (originalGrids != null && originalGrids.Length > 0)
             {
                 Debug.Log("함수 진입");
+
+                testGrids = new Grid[gameObject.transform.GetChild(1).childCount];
+                for (int i = 0; i < emptyCheck.gridRayChecks.Length; i++)       // 
+                {
+                    testGrids[i] = emptyCheck.gridRayChecks[i].hitGrid; // 아이템을 다시 옮길때 그리드의 정보를 아이템도 가지게 해야할것
+                }
+
                 if (!IsSameGridPosition(originalGrids, testGrids))
                 {
                     Debug.Log("위치 변경됨, GridSet 수행");
+                    InventoryManager._instance.GridSet(originalGrids);
                     InventoryManager._instance.GridSet(testGrids);
+                    draggingObj.transform.localPosition = ;
                 }
                 else
                 {
@@ -179,19 +188,19 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
                 placedItem.AddComponent<InventorySlotDropHandler>();
                 placedItem.transform.GetChild(0).gameObject.SetActive(true);
                 placedItem.transform.GetChild(1).gameObject.SetActive(true);
-                //ItemInfo tempitemInfo = placedItem.transform.GetComponent<ItemInfo>();
+                InventorySlotDropHandler inventorySlotDropHandler = placedItem.GetComponent<InventorySlotDropHandler>();
+                
                 item = placedItem.transform.GetComponent<ItemInfo>();
                 originalGrids = new Grid[gameObject.transform.GetChild(1).childCount];
                 for (int i = 0; i < emptyCheck.gridRayChecks.Length; i++)       // 
                 {
                     originalGrids[i] = emptyCheck.gridRayChecks[i].hitGrid; // 아이템을 다시 옮길때 그리드의 정보를 아이템도 가지게 해야할것
                 }
-                item.GetGrids(originalGrids);
-                //originalGrids = item.curGrids();
+                item.GetGrids(originalGrids);       // 점유하고 있는 칸을 아이템인포가 저장
+                inventorySlotDropHandler.originalGrids = item.curGrids();
 
-                //tempitemInfo.GetGrids(testGrids);
 
-                InventoryManager._instance.GridSet(originalGrids);
+                InventoryManager._instance.GridSet(originalGrids);      // 점유한 그리드칸의 T/F 전환
 
                 Destroy(placedItem.GetComponentInChildren<EmptyCheck>());       // 레이체크스크립트 제거
                 GridRayCheck[] gridRayChecks = placedItem.transform.GetChild(1).GetComponentsInChildren<GridRayCheck>();
@@ -201,7 +210,7 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
                 }
 
                 Image[] itemGrids = placedItem.transform.GetChild(1).GetComponentsInChildren<Image>();
-                for (int i = 0; i < itemGrids.Length; i++)
+                for (int i = 0; i < itemGrids.Length; i++)          // 점유한그리드칸을 연하게 표시
                 {
                     itemGrids[i].color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
                 }
