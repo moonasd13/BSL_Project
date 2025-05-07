@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
 
-public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     GameObject draggingObj;     // 드래그중인 게임오브젝트
     GameObject draggingMesh;    // 드래그중인 게임오브젝트의 메쉬
@@ -49,7 +49,7 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
         {
             return;
         }
-        
+        rotateTest = gameObject.transform.localPosition.z;
 
         item = gameObject.transform.GetComponent<ItemInfo>();  // 드래그한 아이템의 정보
 
@@ -98,20 +98,20 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
         ItemInfo draggingItem = draggingObj.AddComponent<ItemInfo>();                           // 드래그중인 오브젝트에 ItemInfo 컴포넌트 추가
         MeshFilter draggingFilter = draggingMesh.AddComponent<MeshFilter>();                     // 드래그중인 오브젝트에 MeshFilter 컴포넌트 추가
         MeshRenderer draggingRenderer = draggingMesh.AddComponent<MeshRenderer>();               // 드래그중인 오브젝트에 MeshRenderer 컴포넌트 추가
-        //draggingObj.name = "apple";
+
 
         draggingItem = item;
 
         draggingFilter.mesh = sourceFilter.mesh;
         draggingRenderer.sharedMaterial = sourceRenderer.sharedMaterial;
         _canvasRt = InventoryManager._rootInvenTransform.transform as RectTransform;
+        
+
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
         emptyCheck = draggingObjPGrid.AddComponent<EmptyCheck>();
 
-        //rotateTest = gameObject.transform.localRotation.z;
         draggingObj.transform.localRotation = gameObject.transform.localRotation;
-        //Debug.Log(draggingObj.name);
         OnDrag(eventData);
     }
     public void OnDrag(PointerEventData eventData)      // 드래그 중일때
@@ -125,50 +125,34 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
             }
         }
     }
-    #region
-    //public void OnEndDrag(PointerEventData eventData)   // 드래그가 끝났을때
-    //{
-    //    if (emptyCheck.Availability == true)
-    //    {
-    //        Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
-    //        draggingRootRectTransform = putGrid.transform.GetComponent<RectTransform>();
 
-    //        ItemInfo draggingInfo = eventData.pointerDrag.transform.GetComponent<ItemInfo>();
-    //        InventoryManager._instance.TestItem(draggingInfo);
-    //        draggingRootRectTransform = null;
-    //        Debug.Log("true");
-    //    }
-    //    else
-    //    {
-    //        gameObject.transform.GetChild(0).gameObject.SetActive(true);       // 임시
-    //        gameObject.transform.GetChild(1).gameObject.SetActive(true);       // 임시
-    //        gameObject.SetActive(false);
-    //        Debug.Log("fales");
-    //    }
-
-    //    Destroy(draggingObj);
-    //}
-    #endregion
     public void OnEndDrag(PointerEventData eventData)
     {
+        Grid putGrid;
+
         if (emptyCheck.Availability)        // 조건1. 아이템칸들이 전부 비어 있는칸인가?
         {
             if (originalGrids != null && originalGrids.Length > 0)
             {
                 Debug.Log("함수 진입");
-
+                putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
                 testGrids = new Grid[gameObject.transform.GetChild(1).childCount];
                 for (int i = 0; i < emptyCheck.gridRayChecks.Length; i++)       // 
                 {
                     testGrids[i] = emptyCheck.gridRayChecks[i].hitGrid; // 아이템을 다시 옮길때 그리드의 정보를 아이템도 가지게 해야할것
                 }
 
-                if (!IsSameGridPosition(originalGrids, testGrids))
+                if (!IsSameGridPosition(originalGrids, testGrids))      // 이전 위치와 다음 위치가 다를 경우 실행
                 {
                     Debug.Log("위치 변경됨, GridSet 수행");
                     InventoryManager._instance.GridSet(originalGrids);
                     InventoryManager._instance.GridSet(testGrids);
-                    draggingObj.transform.localPosition = ;
+                    gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                    gameObject.transform.GetChild(1).gameObject.SetActive(true);
+                    gameObject.transform.localPosition = putGrid.transform.localPosition;
+                    originalGrids = testGrids;
+                    item.GetGrids(originalGrids);
+                    testGrids = null;
                 }
                 else
                 {
@@ -179,9 +163,7 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
 
             else
             {
-                Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
-
-
+                putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
 
                 GameObject placedItem = Instantiate(draggingObj, InventoryManager._rootInvenTransform);
                 placedItem.SetActive(true);
@@ -231,40 +213,6 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
         Debug.Log($"testGrids is {(testGrids == null ? "null" : $"length: {testGrids.Length}")}");
         Destroy(draggingObj);
     }
-    #region
-    //public void OnEndDrag(PointerEventData eventData)
-    //{
-    //    Destroy(draggingObj);
-
-    //    if (emptyCheck.Availability)
-    //    {
-    //        Grid putGrid = emptyCheck.rootGrids.GetComponent<Grid>();
-    //        RectTransform putGridRT = putGrid.GetComponent<RectTransform>();
-
-    //        // 아이템 생성
-    //        GameObject placedItem = Instantiate(gameObject, InventoryManager._rootInvenTransform);
-    //        placedItem.SetActive(true);
-    //        placedItem.transform.GetChild(0).gameObject.SetActive(true);
-    //        placedItem.transform.GetChild(1).gameObject.SetActive(true);
-
-    //        // 위치 보정: localPosition을 맞추기 위해 anchoredPosition으로 조절
-    //        RectTransform placedRT = placedItem.GetComponent<RectTransform>();
-    //        placedRT.anchoredPosition = putGridRT.anchoredPosition;
-    //        placedRT.localScale = Vector3.one;
-    //        placedItem.transform.SetParent(InventoryManager._rootInvenTransform); // Canvas 내부로 다시 세팅
-
-    //        Debug.Log("아이템 배치 성공");
-    //    }
-    //    else
-    //    {
-    //        // 배치 실패 시
-    //        gameObject.transform.GetChild(0).gameObject.SetActive(true);
-    //        gameObject.transform.GetChild(1).gameObject.SetActive(true);
-    //        gameObject.SetActive(false);
-    //        Debug.Log("배치 실패");
-    //    }
-    //}
-    #endregion
     private bool IsSameGridPosition(Grid[] a, Grid[] b)
     {
         if (a.Length != b.Length) return false;
@@ -274,19 +222,5 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
             if (a[i] != b[i]) return false;
         }
         return true;
-    }
-
-
-    public void OnDrop(PointerEventData eventData)
-    {
-
-    }
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-
-    }
-    public void OnPointerExit(PointerEventData eventData)
-    {
-
     }
 }
