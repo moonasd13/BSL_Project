@@ -2,18 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Define;
 
 
 public class ItemInfo : MonoBehaviour
 {
+    ItemName WeaponName;
     ItemCellData cellData;
     RectTransform rectTransform;
     [SerializeField]
     int width;
     [SerializeField]
     int height;
-    [SerializeField]
-    string itemName;
     [SerializeField]
     Grid[] curGetGrids;        // 아이템이 현재 점유하고있는 그리드
 
@@ -25,9 +25,18 @@ public class ItemInfo : MonoBehaviour
     void Temp()
     {
         // 임시
-        width = 3;
-        height = 4;
-        name = "도끼";
+        if (WeaponName == ItemName.Axe)
+        {
+            name = "도끼";
+        }
+        else if (WeaponName == ItemName.HockeyStick)
+        {
+            name = "하키채";
+        }
+        else if (WeaponName == ItemName.SniperRifle)
+        {
+            name = "저격총";
+        }
     }
     public void GetGrids(Grid[] grid)
     {
@@ -55,7 +64,7 @@ public class ItemInfo : MonoBehaviour
         }
         return true;
     }
-    public void GetComponent()
+    public void GetComponentInventorySlotDropHandler()
     {
         gameObject.GetComponent<InventorySlotDropHandler>();
     }

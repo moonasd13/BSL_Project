@@ -14,4 +14,10 @@ namespace Define
         Normal,
         Boss
     }
+    public enum ItemName
+    {
+        Axe,
+        HockeyStick,
+        SniperRifle
+    }
 }
