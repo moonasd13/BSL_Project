@@ -8,12 +8,12 @@ using Define;
 public class ItemInfo : MonoBehaviour
 {
     ItemName WeaponName;
-    ItemCellData cellData;
+    //ItemCellData cellData;
     RectTransform rectTransform;
-    [SerializeField]
-    int width;
-    [SerializeField]
-    int height;
+    //[SerializeField]
+    //int width;
+    //[SerializeField]
+    //int height;
     [SerializeField]
     Grid[] curGetGrids;        // 아이템이 현재 점유하고있는 그리드
 

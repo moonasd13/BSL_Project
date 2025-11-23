@@ -61,4 +61,11 @@ public class InventoryManager : MonoBehaviour
             grids[i].isEmpty = !grids[i].isEmpty;
         }
     }
+    public void GridReset(Grid[] grids)
+    {
+        for (int i = 0; i < grids.Length; i++)
+        {
+            grids[i].isEmpty = true;
+        }
+    }
 }
