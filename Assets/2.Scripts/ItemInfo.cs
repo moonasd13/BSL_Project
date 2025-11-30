@@ -8,33 +8,38 @@ using Define;
 public class ItemInfo : MonoBehaviour
 {
     ItemName WeaponName;
+    int itemRan;
     //ItemCellData cellData;
     RectTransform rectTransform;
-    //[SerializeField]
-    //int width;
-    //[SerializeField]
-    //int height;
+    [SerializeField]
+    GameObject[] ItemPrefab;
     [SerializeField]
     Grid[] curGetGrids;        // 아이템이 현재 점유하고있는 그리드
 
+    //ItemState curItemState;
+
     void Start()
     {
-        Temp();
+        itemRan = UnityEngine.Random.Range(0, 3);
+        Temp(itemRan);
     }
 
-    void Temp()
+    void Temp(int index)
     {
         // 임시
-        if (WeaponName == ItemName.Axe)
+        if (itemRan == 0)
         {
+            WeaponName = ItemName.Axe;
             name = "도끼";
         }
-        else if (WeaponName == ItemName.HockeyStick)
+        else if (itemRan == 1)
         {
+            WeaponName = ItemName.HockeyStick;
             name = "하키채";
         }
-        else if (WeaponName == ItemName.SniperRifle)
+        else if (itemRan == 2)
         {
+            WeaponName = ItemName.SniperRifle;
             name = "저격총";
         }
     }

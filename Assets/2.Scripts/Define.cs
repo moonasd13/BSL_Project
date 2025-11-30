@@ -20,4 +20,9 @@ namespace Define
         HockeyStick,
         SniperRifle
     }
+    public enum ItemState
+    {
+        Store,
+        Inven
+    }
 }
