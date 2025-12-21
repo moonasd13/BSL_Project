@@ -26,6 +26,11 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
     [SerializeField]
     Grid[] tempGrids;
 
+    void Start()
+    {
+        item = GetComponent<ItemInfo>();
+    }
+
     void Update()
     {
         if (draggingObj != null)
@@ -235,6 +240,9 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
                 SetlocalRotation();
                 placedItem.transform.localScale = Vector3.one;
                 Debug.Log("아이템 배치 완료");
+
+                InventoryManager._instance.SetItem(item);
+
                 Destroy(gameObject);
             }
         }

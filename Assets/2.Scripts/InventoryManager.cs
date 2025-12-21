@@ -15,6 +15,15 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     List<ItemInfo> InvenInitems { get; set; } = new List<ItemInfo>();
 
+    [SerializeField]
+    GameObject[] InGameItem;
+
+    [SerializeField]
+    Transform TempTargetPlay;
+
+    [SerializeField]
+    GameObject InvenUI;
+
     public static RectTransform _rootInvenTransform;
 
     public static InventoryManager _instance
@@ -37,14 +46,7 @@ public class InventoryManager : MonoBehaviour
             //Debug.Log(grids[i].name);
         }
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
 
-        }
-
-    }
     public void TestItem(ItemInfo item)
     {
         InvenInitems.Add(item);
@@ -67,5 +69,15 @@ public class InventoryManager : MonoBehaviour
         {
             grids[i].isEmpty = true;
         }
+    }
+    public void SetItem(ItemInfo number)
+    {
+        InvenInitems.Add(number);
+    }
+    public void SetItemStart()
+    {
+        Instantiate(InGameItem[0], TempTargetPlay);
+        InvenUI.SetActive(false);
+
     }
 }
