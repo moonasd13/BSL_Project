@@ -23,36 +23,11 @@ public class OrbitAroundTarget : MonoBehaviour
         );
     }
 
-    //public Transform target;          // Player
-    //public float rotateSpeed = 180f;  // 초당 공전 속도
-    //public Vector3 orbitAxis = Vector3.up;
-
-    //private Vector3 offset;
-
-    //void Start()
-    //{
-    //    target = transform.parent;
-    //    // Player 회전에 영향 안 받게
-    //    transform.SetParent(null);
-
-    //    offset = transform.position - target.position;
-    //}
-
-    //void LateUpdate()
-    //{
-    //    if (target == null) return;
-
-    //    // 1? 오프셋 벡터 회전 (공전)
-    //    offset = Quaternion.AngleAxis(
-    //        rotateSpeed * Time.deltaTime,
-    //        orbitAxis
-    //    ) * offset;
-
-    //    // 2? 위치 갱신
-    //    transform.position = target.position + offset;
-
-    //    // 3? 도끼날을 항상 "바깥쪽"으로 향하게
-    //    Vector3 outwardDir = offset.normalized;
-    //    transform.rotation = Quaternion.LookRotation(outwardDir, Vector3.up);
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Monster"))
+        {
+            Debug.Log("Hit");
+        }
+    }
 }
