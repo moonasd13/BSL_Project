@@ -10,6 +10,7 @@ public class ItemInfo : MonoBehaviour
     ItemName WeaponName;
     int itemRan;
     public int itemNumber;
+    public string itemName;
     //ItemCellData cellData;
     RectTransform rectTransform;
     [SerializeField]

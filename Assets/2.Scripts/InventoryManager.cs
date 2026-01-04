@@ -24,6 +24,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     GameObject InvenUI;
 
+    [SerializeField]    // 임시
+    GameObject monsterSpawner;
+
     public static RectTransform _rootInvenTransform;
 
     public static InventoryManager _instance
@@ -33,6 +36,8 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
+        monsterSpawner.SetActive(false);
+
         _uniqInstance = this;
         _rootInvenTransform = GameObject.Find("InventoryCanvas").GetComponent<RectTransform>();
         InitInvenSize();
@@ -72,12 +77,23 @@ public class InventoryManager : MonoBehaviour
     }
     public void SetItem(ItemInfo number)
     {
+        Debug.Log(number.itemNumber);
         InvenInitems.Add(number);
     }
     public void SetItemStart()
     {
         Instantiate(InGameItem[0], TempTargetPlay);
         InvenUI.SetActive(false);
+        monsterSpawner.SetActive(true);
+    }
 
+    public void DebugItemInven()
+    {
+        Debug.Log("함수진입");
+        for (int i = 0; i < InvenInitems.Count; i++)
+        {
+            Debug.Log(InvenInitems[i].itemNumber);
+            Debug.Log(InvenInitems[i].itemName);
+        }
     }
 }

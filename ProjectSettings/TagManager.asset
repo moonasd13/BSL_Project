@@ -9,6 +9,7 @@ TagManager:
   - Inven
   - ItemGrid
   - InventoryGrid
+  - Monster
   layers:
   - Default
   - TransparentFX

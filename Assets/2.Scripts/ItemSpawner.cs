@@ -16,6 +16,9 @@ public class ItemSpawner : MonoBehaviour
         Instantiate(Item[itemRan], transform);
         ItemInfo spawneItem = transform.GetChild(0).GetComponent<ItemInfo>();
         spawneItem.itemNumber = itemRan;
+
+
+        spawneItem.itemName = "Axe";  // юс╫ц
     }
 
     //void Start()
