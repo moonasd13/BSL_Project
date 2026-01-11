@@ -43,6 +43,7 @@ public class OrbitAroundTarget : MonoBehaviour
     public float rotateSpeed = 180f;
     public Vector3 orbitAxis = Vector3.up;
     public Transform Test;
+    public int index;
 
     private Vector3 offset;
 
@@ -61,9 +62,29 @@ public class OrbitAroundTarget : MonoBehaviour
 
         // 초기 오프셋 고정
         offset = transform.position - target.position;
-        //transform.Rotate(0, 90, 0);
-        //transform.Rotate(0, 0 , -90);
         transform.Rotate(0, 90, -90);
+
+        int invensize = InventoryManager._uniqInstance.InvenInitems.Count;
+        if (invensize == 0)
+            invensize = 1;
+        float rotateAngle = index * (360 / invensize);
+
+        offset = Quaternion.AngleAxis(
+            rotateAngle,
+            orbitAxis
+        ) * offset;
+
+
+        //Debug.Log(offset);
+
+
+
+        // 항상 target 위치 기준
+        transform.position = target.position + offset;
+        //transform.rotation =  //Quaternion.Euler(0 , rotateSpeed * Time.deltaTime, 0);
+
+        transform.Rotate(-rotateAngle, 0, 0);
+
     }
 
     void LateUpdate()

@@ -335,8 +335,8 @@ MonoBehaviour:
   grids: []
   InGameItem:
   - {fileID: 819277570084736990, guid: ad5631adb82813d46b44ee87424ffdfd, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8846890730165156276, guid: 4a1f0d28b3efe754c986b58757973f1e, type: 3}
+  - {fileID: 8846890730165156276, guid: 4a1f0d28b3efe754c986b58757973f1e, type: 3}
   TempTargetPlay: {fileID: 893016073}
   InvenUI: {fileID: 1454179137}
   monsterSpawner: {fileID: 816138494}
@@ -2801,8 +2801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 893016073}
-  minSpawnDistance: 8
-  maxSpawnDistance: 12
+  minSpawnDistance: 16
+  maxSpawnDistance: 24
   spawnInterval: 1.5
   maxMonsterCount: 100
   monsterPrefabs:

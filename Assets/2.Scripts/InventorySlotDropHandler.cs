@@ -114,6 +114,8 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
         //CanvasGroup canGroup = draggingObj.AddComponent<CanvasGroup>();                         // 드래그중인 오브젝트에 CanvasGroup 컴포넌트 추가
         //canGroup.blocksRaycasts = false;
         ItemInfo draggingItem = draggingObj.AddComponent<ItemInfo>();                           // 드래그중인 오브젝트에 ItemInfo 컴포넌트 추가
+        draggingItem.GetComponent<ItemInfo>().itemNumber = sourceItem.itemNumber;
+        draggingItem.GetComponent<ItemInfo>().itemName = sourceItem.itemName;
         MeshFilter draggingFilter = draggingMesh.AddComponent<MeshFilter>();                     // 드래그중인 오브젝트에 MeshFilter 컴포넌트 추가
         MeshRenderer draggingRenderer = draggingMesh.AddComponent<MeshRenderer>();               // 드래그중인 오브젝트에 MeshRenderer 컴포넌트 추가
 

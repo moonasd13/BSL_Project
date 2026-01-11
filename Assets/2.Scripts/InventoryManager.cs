@@ -7,13 +7,13 @@ using UnityEngine.VFX;
 
 public class InventoryManager : MonoBehaviour
 {
-    static InventoryManager _uniqInstance;
+    public static InventoryManager _uniqInstance;
 
     int _invenMaxSize = 64;
     [SerializeField]
     Grid[] grids;
     [SerializeField]
-    List<ItemInfo> InvenInitems { get; set; } = new List<ItemInfo>();
+    public List<ItemInfo> InvenInitems { get; set; } = new List<ItemInfo>();
 
     [SerializeField]
     GameObject[] InGameItem;
@@ -82,7 +82,15 @@ public class InventoryManager : MonoBehaviour
     }
     public void SetItemStart()
     {
-        Instantiate(InGameItem[0], TempTargetPlay);
+        for(int i = 0; i <InvenInitems.Count; i++)
+        {
+            GameObject obj = Instantiate(InGameItem[InvenInitems[i].itemNumber], TempTargetPlay);
+            if (obj.transform.GetChild(0).GetComponent<OrbitAroundTarget>())
+            {
+                obj.transform.GetChild(0).GetComponent<OrbitAroundTarget>().index = i;
+            }
+        }
+        //Instantiate(InGameItem[0], TempTargetPlay);
         InvenUI.SetActive(false);
         monsterSpawner.SetActive(true);
     }
