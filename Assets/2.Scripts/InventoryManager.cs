@@ -4,10 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.VFX;
+using Define;
 
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager _uniqInstance;
+
+
+    public Dictionary<eInitItems, ItemType> initItems = new Dictionary<eInitItems, ItemType>();
+
 
     int _invenMaxSize = 64;
     [SerializeField]
@@ -36,6 +41,16 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
+
+        initItems.Add(eInitItems.Axe, ItemType.Weapon);
+        initItems.Add(eInitItems.HockeyStick, ItemType.Weapon);
+        initItems.Add(eInitItems.SniperRifle, ItemType.Weapon);
+        initItems.Add(eInitItems.Hpcharm, ItemType.Stats);
+        initItems.Add(eInitItems.Speedcharm, ItemType.Stats);
+
+
+
+
         monsterSpawner.SetActive(false);
 
         _uniqInstance = this;
@@ -84,11 +99,22 @@ public class InventoryManager : MonoBehaviour
     {
         for(int i = 0; i <InvenInitems.Count; i++)
         {
-            GameObject obj = Instantiate(InGameItem[InvenInitems[i].itemNumber], TempTargetPlay);
-            if (obj.transform.GetChild(0).GetComponent<OrbitAroundTarget>())
+            // invenInitems의 i에의해서 속성에 따라 소환을 결정 => 무기, 스탯
+
+            if (initItems.TryGetValue((eInitItems)InvenInitems[i].itemNumber, out Define.ItemType val))
             {
-                obj.transform.GetChild(0).GetComponent<OrbitAroundTarget>().index = i;
+                if (ItemType.Weapon == val)
+                {
+                    GameObject obj = Instantiate(InGameItem[InvenInitems[i].itemNumber], TempTargetPlay);
+                    if (obj.transform.GetChild(0).GetComponent<OrbitAroundTarget>())
+                    {
+                        obj.transform.GetChild(0).GetComponent<OrbitAroundTarget>().index = i;
+                    }
+                }
             }
+
+            //if (InvenInitems[i].itemNumber == ItemSpawner.initItems.)
+
         }
         //Instantiate(InGameItem[0], TempTargetPlay);
         InvenUI.SetActive(false);

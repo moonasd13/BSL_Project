@@ -7,7 +7,7 @@ namespace Define
     {
         Weapon,
         Stats,
-        AdditionalEffects
+        //AdditionalEffects
     }
     public enum MonsterType
     {
@@ -24,5 +24,16 @@ namespace Define
     {
         Store,
         Inven
+    }
+    public enum eInitItems
+    {
+        Axe,
+        HockeyStick,
+        SniperRifle,
+        
+        Hpcharm,
+        Speedcharm,
+
+        
     }
 }

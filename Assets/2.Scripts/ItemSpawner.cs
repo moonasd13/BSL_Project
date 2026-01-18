@@ -1,4 +1,5 @@
 using Define;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +9,18 @@ public class ItemSpawner : MonoBehaviour
     [SerializeField]
     GameObject[] Item;
     ItemName WeaponName;
+
+
     int itemRan;
     void Start()
     {
-        itemRan = UnityEngine.Random.Range(0, 3);
-        Temp(itemRan);
+
+        int enumCount = Enum.GetValues(typeof(eInitItems)).Length;
+        itemRan = UnityEngine.Random.Range(0, enumCount);
+        //Temp(itemRan);
         Instantiate(Item[itemRan], transform);
         ItemInfo spawneItem = transform.GetChild(0).GetComponent<ItemInfo>();
-        spawneItem.itemNumber = itemRan;
+        spawneItem.itemNumber = itemRan;        // einitItems와 같은값
 
 
         spawneItem.itemName = "Axe";  // 임시

@@ -8,6 +8,7 @@ using Define;
 public class ItemInfo : MonoBehaviour
 {
     ItemName WeaponName;
+    ItemType ItemType;
     int itemRan;
     public int itemNumber;
     public string itemName;
