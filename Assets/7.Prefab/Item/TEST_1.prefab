@@ -368,6 +368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc5e62c52bfe124fa10def7aeefb5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemNumber: 0
+  item_InherenceNumber: 0
+  itemName: 
   ItemPrefab: []
   curGetGrids: []
 --- !u!114 &7452974694343192000

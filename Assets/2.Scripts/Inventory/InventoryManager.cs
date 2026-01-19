@@ -32,6 +32,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]    // юс╫ц
     GameObject monsterSpawner;
 
+    [SerializeField]
+    ItemSpawner[] ItemSpawner;
+
     public static RectTransform _rootInvenTransform;
 
     public static InventoryManager _instance
@@ -79,7 +82,6 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < grids.Length; i++)
         {
-            //grids[i].isEmpty = false;
             grids[i].isEmpty = !grids[i].isEmpty;
         }
     }
@@ -112,11 +114,7 @@ public class InventoryManager : MonoBehaviour
                     }
                 }
             }
-
-            //if (InvenInitems[i].itemNumber == ItemSpawner.initItems.)
-
         }
-        //Instantiate(InGameItem[0], TempTargetPlay);
         InvenUI.SetActive(false);
         monsterSpawner.SetActive(true);
     }
@@ -130,4 +128,12 @@ public class InventoryManager : MonoBehaviour
             Debug.Log(InvenInitems[i].itemName);
         }
     }
+    public void ItemSale(int reroll)
+    {
+        //ItemSpawner[reroll].Item.
+    }
+    public void itemReroll()
+    {
+
+    }    
 }

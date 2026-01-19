@@ -5,8 +5,6 @@ using UnityEngine;
 public class EmptyCheck : MonoBehaviour
 {
     public bool Availability { get; private set; }
-    [SerializeField]
-    //GridRayCheck[] gridRayChecks;       // 아이템을 놔둘 기준그리드
     public GridRayCheck[] gridRayChecks { get; private set; }
     [SerializeField]
     public Grid rootGrids;

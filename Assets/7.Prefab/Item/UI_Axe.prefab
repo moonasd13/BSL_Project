@@ -333,7 +333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &349953150410006929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -368,6 +368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc5e62c52bfe124fa10def7aeefb5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemNumber: 0
+  item_InherenceNumber: 0
+  itemName: 
   ItemPrefab: []
   curGetGrids: []
 --- !u!114 &349953150410006927

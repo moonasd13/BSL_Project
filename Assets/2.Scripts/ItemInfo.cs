@@ -11,6 +11,7 @@ public class ItemInfo : MonoBehaviour
     ItemType ItemType;
     int itemRan;
     public int itemNumber;
+    public int item_InherenceNumber;
     public string itemName;
     //ItemCellData cellData;
     RectTransform rectTransform;
@@ -23,29 +24,8 @@ public class ItemInfo : MonoBehaviour
 
     void Start()
     {
-        //itemRan = UnityEngine.Random.Range(0, 3);
-        //Temp(itemRan);
-    }
 
-    //void Temp(int index)
-    //{
-    //    // ¿”Ω√
-    //    if (itemRan == 0)
-    //    {
-    //        WeaponName = ItemName.Axe;
-    //        name = "µµ≥¢";
-    //    }
-    //    else if (itemRan == 1)
-    //    {
-    //        WeaponName = ItemName.HockeyStick;
-    //        name = "«œ≈∞√§";
-    //    }
-    //    else if (itemRan == 2)
-    //    {
-    //        WeaponName = ItemName.SniperRifle;
-    //        name = "¿˙∞›√—";
-    //    }
-    //}
+    }
     public void GetGrids(Grid[] grid)
     {
         curGetGrids = new Grid[grid.Length];
@@ -72,8 +52,4 @@ public class ItemInfo : MonoBehaviour
         }
         return true;
     }
-    //public void GetComponentInventorySlotDropHandler()
-    //{
-    //    gameObject.GetComponent<InventorySlotDropHandler>();
-    //}
 }

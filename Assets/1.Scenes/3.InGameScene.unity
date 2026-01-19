@@ -232,7 +232,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &95150774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +341,11 @@ MonoBehaviour:
   TempTargetPlay: {fileID: 893016073}
   InvenUI: {fileID: 1454179137}
   monsterSpawner: {fileID: 816138494}
+  ItemSpawner:
+  - {fileID: 93303508}
+  - {fileID: 1950992851}
+  - {fileID: 2068650436}
+  - {fileID: 1708462261}
 --- !u!1 &180266632
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +401,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &180266636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +507,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &285461976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,7 +613,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &288112967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,7 +719,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &327131410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,7 +944,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &330771515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,7 +1050,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &354863979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,7 +1348,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &485620097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1457,7 +1454,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &490833435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1632,7 +1628,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &568503783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1874,7 +1869,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &671949745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1981,7 +1975,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &696419877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2088,7 +2081,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &727330746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,7 +2187,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &768965518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2302,7 +2293,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &769131496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2409,7 +2399,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &779022714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2516,7 +2505,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &779201019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2623,7 +2611,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &787581315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2687,8 +2674,8 @@ GameObject:
   - component: {fileID: 787770057}
   - component: {fileID: 787770056}
   - component: {fileID: 787770055}
-  m_Layer: 3
-  m_Name: TempPlane
+  m_Layer: 0
+  m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2769,7 +2756,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1048040423}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2827,7 +2815,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &822855228
 GameObject:
@@ -3068,7 +3056,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &846388726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3175,7 +3162,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &854336709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3282,7 +3268,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &885209956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3544,7 +3529,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &926387447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3639,7 +3623,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &937709149
 GameObject:
@@ -3831,7 +3815,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &942710937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3938,7 +3921,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &990487412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4045,7 +4027,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &992034117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4402,7 +4383,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1012756423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4537,7 +4517,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1025830285}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 127359927}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: DebugItemInven
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1025830285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4631,7 +4623,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1026541895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4683,6 +4674,104 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 65, y: 65, z: 1}
   m_Center: {x: 0, y: 0, z: 5}
+--- !u!1 &1048040422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048040423}
+  - component: {fileID: 1048040426}
+  - component: {fileID: 1048040425}
+  - component: {fileID: 1048040424}
+  m_Layer: 3
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1048040423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048040422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 787770058}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1048040424
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048040422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1048040425
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048040422}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1048040426
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048040422}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1055993139
 GameObject:
   m_ObjectHideFlags: 0
@@ -4738,7 +4827,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1055993143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4845,7 +4933,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1057930134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4952,7 +5039,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1061025242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5059,7 +5145,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1062898532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5166,7 +5251,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1073030878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5273,7 +5357,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1090493179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5380,7 +5463,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1101472306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5487,7 +5569,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1104419900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5594,7 +5675,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1121093517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5701,7 +5781,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1126702028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5808,7 +5887,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1200912635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5915,7 +5993,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1215514149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6022,7 +6099,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1230619494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6129,7 +6205,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1243290608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6370,7 +6445,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1325048320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6561,7 +6635,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1371598745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6668,7 +6741,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1382103227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6819,7 +6891,7 @@ RectTransform:
   - {fileID: 1281927291}
   - {fileID: 1635342256}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6881,7 +6953,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1484037145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6988,7 +7059,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1494761819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7171,7 +7241,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1618385741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7357,104 +7426,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635342255}
   m_CullTransparentMesh: 1
---- !u!1 &1653153885
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1653153889}
-  - component: {fileID: 1653153888}
-  - component: {fileID: 1653153887}
-  - component: {fileID: 1653153886}
-  m_Layer: 0
-  m_Name: TempPlane1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!64 &1653153886
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653153885}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1653153887
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653153885}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1653153888
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653153885}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1653153889
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653153885}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687857271
 GameObject:
   m_ObjectHideFlags: 0
@@ -7510,7 +7481,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1687857275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7672,7 +7642,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1733136094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7779,7 +7748,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1782806688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7886,7 +7854,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1808107320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7993,7 +7960,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1863783236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8100,7 +8066,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1871220520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8207,7 +8172,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1874263491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8314,7 +8278,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1895516178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8421,7 +8384,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1900715646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8528,7 +8490,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &1935158951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8673,7 +8634,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!65 &1948452409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8797,7 +8757,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &2010165106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8904,7 +8863,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &2036464761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9011,7 +8969,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &2054154545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9356,7 +9313,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &2085253634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9463,7 +9419,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &2095105044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9570,7 +9525,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: b39ccdf2015654b45b55960c0227e7d9, type: 3}
-  item: {fileID: 0}
 --- !u!114 &2112380979
 MonoBehaviour:
   m_ObjectHideFlags: 0
