@@ -10,6 +10,7 @@ public class ItemInfo : MonoBehaviour
     ItemName WeaponName;
     ItemType ItemType;
     int itemRan;
+    int price;
     public int itemNumber;
     public int item_InherenceNumber;
     public string itemName;
@@ -20,7 +21,7 @@ public class ItemInfo : MonoBehaviour
     [SerializeField]
     Grid[] curGetGrids;        // 아이템이 현재 점유하고있는 그리드
 
-    //ItemState curItemState;
+    bool ItemForInven;
 
     void Start()
     {

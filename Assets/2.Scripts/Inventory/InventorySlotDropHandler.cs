@@ -190,13 +190,6 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
                     gameObject.SetActive(true);
                     Debug.Log("위치 변경 없음");
                 }
-
-                //else
-                //{
-                //    Debug.Log("같은 위치로 드래그함");
-
-                //    isDragging = false;
-                //}
             }
 
 
