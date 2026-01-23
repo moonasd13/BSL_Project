@@ -9,13 +9,10 @@ public class ItemInfo : MonoBehaviour
 {
     ItemName WeaponName;
     ItemType ItemType;
-    int itemRan;
     int price;
     public int itemNumber;
     public int item_InherenceNumber;
     public string itemName;
-    //ItemCellData cellData;
-    RectTransform rectTransform;
     [SerializeField]
     GameObject[] ItemPrefab;
     [SerializeField]

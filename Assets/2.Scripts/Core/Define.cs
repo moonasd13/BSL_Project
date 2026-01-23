@@ -36,4 +36,9 @@ namespace Define
 
         
     }
+    public enum GameState
+    {
+        combat,
+
+    }
 }

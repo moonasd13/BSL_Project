@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 93303508}
   m_Layer: 6
   m_Name: StopItemSlot
-  m_TagString: Untagged
+  m_TagString: StopItemSpawnPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -346,6 +346,7 @@ MonoBehaviour:
   - {fileID: 1950992851}
   - {fileID: 2068650436}
   - {fileID: 1708462261}
+  itemSpawner: {fileID: 0}
 --- !u!1 &180266632
 GameObject:
   m_ObjectHideFlags: 0
@@ -7544,7 +7545,7 @@ GameObject:
   - component: {fileID: 1708462261}
   m_Layer: 6
   m_Name: StopItemSlot (3)
-  m_TagString: Untagged
+  m_TagString: StopItemSpawnPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8659,7 +8660,7 @@ GameObject:
   - component: {fileID: 1950992851}
   m_Layer: 6
   m_Name: StopItemSlot (1)
-  m_TagString: Untagged
+  m_TagString: StopItemSpawnPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9215,7 +9216,7 @@ GameObject:
   - component: {fileID: 2068650436}
   m_Layer: 6
   m_Name: StopItemSlot (2)
-  m_TagString: Untagged
+  m_TagString: StopItemSpawnPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

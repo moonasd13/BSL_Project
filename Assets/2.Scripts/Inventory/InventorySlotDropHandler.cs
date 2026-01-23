@@ -177,7 +177,6 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
 
                     originalGrids = tempGrids;
                     item.GetGrids(originalGrids);
-                    //Debug.Log($"testGrids is {(tempGrids == null ? "null" : $"length: {tempGrids.Length}")}");
 
                     tempGrids = null;
 
@@ -248,7 +247,6 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
             gameObject.SetActive(true);
             Debug.Log("배치 실패");
         }
-        //Debug.Log($"testGrids is {(testGrids == null ? "null" : $"length: {testGrids.Length}")}");
         Destroy(draggingObj);
     }
     private bool IsSameGridPosition(Grid[] a, Grid[] b)     // 기존에 있던 위치와 새로 바뀔 위치가 같은지 확인하는 함수

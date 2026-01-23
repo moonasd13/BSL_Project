@@ -35,6 +35,9 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]
     ItemSpawner[] ItemSpawner;
 
+    [SerializeField]
+    ItemSpawner itemSpawner;
+
     public static RectTransform _rootInvenTransform;
 
     public static InventoryManager _instance
@@ -130,7 +133,7 @@ public class InventoryManager : MonoBehaviour
     }
     public void ItemSale(int reroll)
     {
-        //ItemSpawner[reroll].Item.
+
     }
     public void itemReroll()
     {
