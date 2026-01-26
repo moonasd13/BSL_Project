@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Define
 {
+
     [System.Serializable]
     public class BGMClipData
     {
@@ -17,7 +18,6 @@ namespace Define
         public SFXType type;
         public AudioClip clip;
     }
-
     public enum SFXType
     {
         PlayerHit,

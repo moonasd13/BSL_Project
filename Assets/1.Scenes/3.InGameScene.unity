@@ -2797,8 +2797,8 @@ MonoBehaviour:
   spawnInterval: 1.5
   maxMonsterCount: 100
   monsterPrefabs:
-  - {fileID: 7825701473720489052, guid: 925bd9030aabb5c41a8be1a666d8fc78, type: 3}
-  - {fileID: 287003276496138116, guid: 44a265fa5eceda24f9d970dc0a8a2683, type: 3}
+  - {fileID: 2823486974446598678, guid: 7b92e16eb13e6214294e76b5e2f64a65, type: 3}
+  - {fileID: 9116379676778502672, guid: 7c1dd6c04e5e4da4b9a85f051d360d83, type: 3}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
