@@ -33,10 +33,14 @@ public class InventoryManager : MonoBehaviour
     GameObject monsterSpawner;
 
     [SerializeField]
-    ItemSpawner[] ItemSpawner;
+    Transform storeRoot;
+
+    [SerializeField]
+    StopItemSlot[] stopItemSlots;
 
     [SerializeField]
     ItemSpawner itemSpawner;
+
 
     public static RectTransform _rootInvenTransform;
 
@@ -54,8 +58,7 @@ public class InventoryManager : MonoBehaviour
         initItems.Add(eInitItems.Hpcharm, ItemType.Stats);
         initItems.Add(eInitItems.Speedcharm, ItemType.Stats);
 
-
-
+        //stopItemSlots = storeRoot.GetComponentsInChildren<StopItemSlot>();
 
         monsterSpawner.SetActive(false);
 

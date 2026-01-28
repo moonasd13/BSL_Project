@@ -235,7 +235,7 @@ public class InventorySlotDropHandler : MonoBehaviour, IBeginDragHandler, IDragH
                 placedItem.transform.localScale = Vector3.one;
                 Debug.Log("아이템 배치 완료");
 
-                InventoryManager._instance.SetItem(item);
+                InventoryManager._instance.SetItem(item);       // 최초로 인벤에 아이템에 놔뒀을시 InvenInitems에 등록
 
                 Destroy(gameObject);
             }

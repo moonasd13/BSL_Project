@@ -36,18 +36,4 @@ public class ItemInfo : MonoBehaviour
     {
         return curGetGrids;
     }
-    public bool AreGridsEqual(EmptyCheck emptyCheck)
-    {
-        if (curGetGrids.Length != emptyCheck.gridRayChecks.Length)
-            return false;
-
-        for (int i = 0; i < curGetGrids.Length; i++)
-        {
-            if (curGetGrids[i] != emptyCheck.gridRayChecks[i].hitGrid)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
 }

@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 93303507}
   - component: {fileID: 93303508}
+  - component: {fileID: 93303509}
   m_Layer: 6
   m_Name: StopItemSlot
   m_TagString: StopItemSpawnPos
@@ -177,6 +178,19 @@ MonoBehaviour:
   - {fileID: 7452974694343192013, guid: 1dc082ac60b985d4cba572920cb1616b, type: 3}
   - {fileID: 7452974694343192013, guid: c1a860e36b8ab1f4e8b06f773ba3fa99, type: 3}
   - {fileID: 7452974694343192013, guid: e2a28b579c937484e8983d97bada618b, type: 3}
+--- !u!114 &93303509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93303506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24be5b077a0cd9542a249424b3b5c6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StopItemSlotTransform: {fileID: 0}
 --- !u!1 &95150770
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,11 +355,8 @@ MonoBehaviour:
   TempTargetPlay: {fileID: 893016073}
   InvenUI: {fileID: 1454179137}
   monsterSpawner: {fileID: 816138494}
-  ItemSpawner:
-  - {fileID: 93303508}
-  - {fileID: 1950992851}
-  - {fileID: 2068650436}
-  - {fileID: 1708462261}
+  storeRoot: {fileID: 0}
+  stopItemSlots: []
   itemSpawner: {fileID: 0}
 --- !u!1 &180266632
 GameObject:
@@ -7543,6 +7554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1708462260}
   - component: {fileID: 1708462261}
+  - component: {fileID: 1708462262}
   m_Layer: 6
   m_Name: StopItemSlot (3)
   m_TagString: StopItemSpawnPos
@@ -7588,6 +7600,19 @@ MonoBehaviour:
   - {fileID: 7452974694343192013, guid: 1dc082ac60b985d4cba572920cb1616b, type: 3}
   - {fileID: 7452974694343192013, guid: c1a860e36b8ab1f4e8b06f773ba3fa99, type: 3}
   - {fileID: 7452974694343192013, guid: e2a28b579c937484e8983d97bada618b, type: 3}
+--- !u!114 &1708462262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708462259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24be5b077a0cd9542a249424b3b5c6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StopItemSlotTransform: {fileID: 0}
 --- !u!1 &1733136090
 GameObject:
   m_ObjectHideFlags: 0
@@ -8658,6 +8683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1950992850}
   - component: {fileID: 1950992851}
+  - component: {fileID: 1950992852}
   m_Layer: 6
   m_Name: StopItemSlot (1)
   m_TagString: StopItemSpawnPos
@@ -8703,6 +8729,19 @@ MonoBehaviour:
   - {fileID: 7452974694343192013, guid: 1dc082ac60b985d4cba572920cb1616b, type: 3}
   - {fileID: 7452974694343192013, guid: c1a860e36b8ab1f4e8b06f773ba3fa99, type: 3}
   - {fileID: 7452974694343192013, guid: e2a28b579c937484e8983d97bada618b, type: 3}
+--- !u!114 &1950992852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950992849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24be5b077a0cd9542a249424b3b5c6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StopItemSlotTransform: {fileID: 0}
 --- !u!1 &2010165102
 GameObject:
   m_ObjectHideFlags: 0
@@ -9214,6 +9253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2068650435}
   - component: {fileID: 2068650436}
+  - component: {fileID: 2068650437}
   m_Layer: 6
   m_Name: StopItemSlot (2)
   m_TagString: StopItemSpawnPos
@@ -9259,6 +9299,19 @@ MonoBehaviour:
   - {fileID: 7452974694343192013, guid: 1dc082ac60b985d4cba572920cb1616b, type: 3}
   - {fileID: 7452974694343192013, guid: c1a860e36b8ab1f4e8b06f773ba3fa99, type: 3}
   - {fileID: 7452974694343192013, guid: e2a28b579c937484e8983d97bada618b, type: 3}
+--- !u!114 &2068650437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068650434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24be5b077a0cd9542a249424b3b5c6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StopItemSlotTransform: {fileID: 0}
 --- !u!1 &2085253630
 GameObject:
   m_ObjectHideFlags: 0
