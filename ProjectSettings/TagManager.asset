@@ -11,6 +11,7 @@ TagManager:
   - InventoryGrid
   - Monster
   - StopItemSpawnPos
+  - Store
   layers:
   - Default
   - TransparentFX

@@ -58,7 +58,9 @@ public class InventoryManager : MonoBehaviour
         initItems.Add(eInitItems.Hpcharm, ItemType.Stats);
         initItems.Add(eInitItems.Speedcharm, ItemType.Stats);
 
-        //stopItemSlots = storeRoot.GetComponentsInChildren<StopItemSlot>();
+        storeRoot = GameObject.FindGameObjectWithTag("Store").GetComponent<Transform>();
+        stopItemSlots = storeRoot.GetComponentsInChildren<StopItemSlot>();
+
 
         monsterSpawner.SetActive(false);
 
