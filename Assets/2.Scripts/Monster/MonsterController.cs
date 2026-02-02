@@ -20,4 +20,11 @@ public class MonsterController : MonoBehaviour
         Vector3 dirN = dir.normalized;
         transform.position = transform.position +  dirN * 3 * Time.deltaTime;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Hit");
+        }
+    }
 }

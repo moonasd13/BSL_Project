@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6736797378249866344}
   - component: {fileID: 7061175069422524211}
+  - component: {fileID: 8552999655778380193}
   m_Layer: 0
   m_Name: Monster_Slime
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPlayer: {fileID: 0}
+--- !u!135 &8552999655778380193
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823486974446598678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &6104693198996573644
 GameObject:
   m_ObjectHideFlags: 0

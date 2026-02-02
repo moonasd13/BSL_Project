@@ -15,11 +15,11 @@ public class ItemSpawner : MonoBehaviour
     void Start()
     {
 
-        //int enumCount = Enum.GetValues(typeof(eInitItems)).Length;
-        //itemRan = UnityEngine.Random.Range(0, enumCount);
-        //Instantiate(Item[itemRan], transform);
-        //ItemInfo spawneItem = transform.GetChild(0).GetComponent<ItemInfo>();
-        //spawneItem.itemNumber = itemRan;        // einitItems와 같은값
+        int enumCount = Enum.GetValues(typeof(eInitItems)).Length;
+        itemRan = UnityEngine.Random.Range(0, enumCount);
+        Instantiate(Item[itemRan], transform);
+        ItemInfo spawneItem = transform.GetChild(0).GetComponent<ItemInfo>();
+        spawneItem.itemNumber = itemRan;        // einitItems와 같은값
 
 
         //spawneItem.itemName = "Axe";  // 임시
